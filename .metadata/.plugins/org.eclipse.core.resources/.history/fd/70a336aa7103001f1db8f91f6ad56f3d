@@ -1,0 +1,11 @@
+package chap02_variables;
+
+public class _05_SortIntLong {
+
+	public static void main(String[] args) {
+		
+		// 1. short
+
+	}
+
+}
