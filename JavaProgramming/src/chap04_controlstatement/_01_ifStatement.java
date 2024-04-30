@@ -30,8 +30,6 @@ public class _01_ifStatement {
 			System.out.println("홀수");
 		}
 		
-		int num1 = 1234;
-		
 		// num1가 짝수인지 홀수인지 출력하는 조건문을 완성하세요.
 		
 //		if(num % 2 == 0)
