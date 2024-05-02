@@ -1,0 +1,19 @@
+package chap09_inherit.board;
+
+public class FreeBoard extends Board {
+
+	String attachFile;
+
+
+	public FreeBoard(long id, String title, String content, String writer, String creDate, String attachFile) {
+		super(id, title, content, writer, creDate, attachFile);
+		this.attachFile = attachFile;
+		
+	}
+	
+	public void post() {
+		System.out.println("자유게시판에 게시글을 작성합니다.");
+	}
+
+
+}

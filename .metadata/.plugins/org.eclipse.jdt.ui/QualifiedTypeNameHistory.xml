@@ -5,4 +5,7 @@
     <fullyQualifiedTypeName name="chap06_method.Calc.AccessModifierCalculator"/>
     <fullyQualifiedTypeName name="chap06_method.Calc.CompleteCalculator"/>
     <fullyQualifiedTypeName name="chap06_method.Calc.OverloadingCalculator"/>
+    <fullyQualifiedTypeName name="chap99_homework.homework02.RockScissPaper"/>
+    <fullyQualifiedTypeName name="chap07_class.Car.CarConstructor"/>
+    <fullyQualifiedTypeName name="chap07_class.game.Numbaseball"/>
 </qualifiedTypeNameHistroy>

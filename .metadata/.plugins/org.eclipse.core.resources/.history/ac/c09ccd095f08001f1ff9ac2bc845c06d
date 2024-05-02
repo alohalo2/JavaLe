@@ -1,0 +1,34 @@
+package chap11_abstraction.Tv;
+
+public class SamsungTv extends Tv {
+
+	@Override
+	public void powerOn() {
+		System.out.println("OLED");
+	}
+	
+	@Override
+	public void powerOff() {
+		System.out.println("OLED");
+	}
+	
+	@Override
+	public void operate(int channel) {
+		System.out.println("OLED");
+	}
+
+
+	@Override
+	public void channelUp() {
+		
+		
+	}
+
+	@Override
+	public void channelDown() {
+		
+		
+	}
+	
+	
+}

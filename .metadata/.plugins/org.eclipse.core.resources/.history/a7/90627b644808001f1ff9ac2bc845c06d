@@ -1,0 +1,7 @@
+package chap10_polymorphim;
+
+import chap10_polymorphim.tv.Tv;
+
+public class AppleTv extends Tv {
+
+}
