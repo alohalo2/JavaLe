@@ -1,0 +1,16 @@
+package chap99_homework04.advance;
+
+public class TemporaryWorker extends Employee {
+
+	@Override
+	public double getMonthPay() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

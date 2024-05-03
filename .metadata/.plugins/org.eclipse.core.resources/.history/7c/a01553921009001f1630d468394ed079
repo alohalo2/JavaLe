@@ -1,0 +1,10 @@
+package chap12_interface.multiflex;
+
+public interface Stadium {
+
+	void getSportsSchedule (int month);
+	int getSportsTicketPrice(int peaple);
+	void getSupporterItem(int peaple);
+	
+	
+}

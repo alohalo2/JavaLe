@@ -24,6 +24,9 @@ public class _01_Abstraction {
 		academy.rest();
 		academy.attend();
 
+		// 추상클래스에도 static 메소드를 만들 수 있다. 구현부까지
+		
+		
 	}
 
 }

@@ -1,0 +1,11 @@
+package chap99_homework.mammalia;
+
+public class Tiger extends Feline {
+
+	public Tiger() {
+	}
+	
+	
+	
+	
+}

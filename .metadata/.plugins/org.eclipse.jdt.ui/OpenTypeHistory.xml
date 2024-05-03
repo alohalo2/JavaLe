@@ -1,2 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<typeInfoHistroy/>
+<typeInfoHistroy>
+    <typeInfo handle="=JavaProgramming/src&lt;chap99_homework04.parent{Parent.java[Parent" modifiers="1" timestamp="1714641649661"/>
+    <typeInfo handle="=JavaProgramming/src&lt;chap99_homework04.employee{Employee.java[Employee" modifiers="1025" timestamp="1714642294148"/>
+    <typeInfo handle="=JavaProgramming/src&lt;chap99_homework04.middle{Max3.java[Max3" modifiers="0" timestamp="1714651624543"/>
+    <typeInfo handle="=JavaProgramming/src&lt;chap99_homework04.middle{Median.java[Median" modifiers="0" timestamp="1714652634283"/>
+    <typeInfo handle="=JavaProgramming/src&lt;chap99_homework04.advance{Employee.java[Employee" modifiers="1025" timestamp="1714646922933"/>
+</typeInfoHistroy>

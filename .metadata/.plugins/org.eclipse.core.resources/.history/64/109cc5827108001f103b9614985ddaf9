@@ -1,0 +1,5 @@
+package chap99_homework04.advance;
+
+public abstract class Employee {
+
+}

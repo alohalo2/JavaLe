@@ -1,0 +1,16 @@
+package chap99_homework.mammalia;
+
+public class Tiger extends Cat {
+
+	public Tiger() {
+	}
+	
+	public void sleep() {
+		System.out.println("웅크리고 잔다.");
+	}
+	
+	public void action() {
+		System.out.println("혼자서 행동한다.");
+	}
+	
+}

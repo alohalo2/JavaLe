@@ -1,0 +1,12 @@
+package chap99_homework04.advance;
+
+public class PartTime extends Employee {
+
+	@Override
+	public double getMonthPay() {
+		int workDay;
+		double getMonthPay = pay * workDay;
+		return getMonthPay;
+	}
+
+}

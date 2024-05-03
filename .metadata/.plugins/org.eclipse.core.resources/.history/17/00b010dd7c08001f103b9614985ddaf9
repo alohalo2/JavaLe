@@ -1,0 +1,7 @@
+package chap99_homework04.middle;
+
+public class Max3Test extends Max3 {
+
+	
+	
+}

@@ -5,7 +5,6 @@ import java.util.Random;
 import java.util.Scanner;
 
 
-
 public class RockScissPaper {
 
 //	1. 가위, 바위, 보 게임을 RockScissPaper 클래스로 만드세요.
@@ -26,7 +25,10 @@ public class RockScissPaper {
 	public void start() {
 		while(true) {
 			//가위(0) 바위(1) 보(2)
-			int comRd1 = rd.nextInt(3);//0, 1, 2중 하나를 랜덤하게 선택
+//			int comRd1 = rd.nextInt(3);//0, 1, 2중 하나를 랜덤하게 선택
+			
+			int comRd1 = (int)Math.random() * 3;
+			
 			System.out.println("가위(0), 바위(1), 보(2) 중 하나를 입력하세요.(3 입력 시 종료)");
 
 			int inputNum = sc.nextInt();
