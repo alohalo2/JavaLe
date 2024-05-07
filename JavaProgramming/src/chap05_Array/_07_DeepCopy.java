@@ -1,4 +1,4 @@
-package chap05_Array;
+package chap05_array;
 
 public class _07_DeepCopy {
 

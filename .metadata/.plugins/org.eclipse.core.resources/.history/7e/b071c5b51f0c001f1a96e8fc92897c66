@@ -1,0 +1,39 @@
+package chap13_nestedclass;
+
+import chap13_nestedclass.nestedclass.NestedClass;
+
+public class _01_InstanceOfNestedClass {
+
+	public static void main(String[] args) {
+		
+		
+		// 1. 정적 중첩 클래스의 객체 생성
+		// 외부클래스의 객체 생성없이도 객체 생성 가능
+		
+		NestedClass.Mul = new NestedClass.Mul();
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+
+	}
+
+}

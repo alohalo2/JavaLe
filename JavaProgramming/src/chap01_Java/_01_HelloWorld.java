@@ -1,4 +1,4 @@
-package chap01_Java;
+package chap01_java;
 
 public class _01_HelloWorld {
 
