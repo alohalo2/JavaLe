@@ -21,18 +21,36 @@ public class Middle {
 //		2. 사용자가 입력한 문자열에서 중복된 문자를 제거한 문자열을 출력하세요.
 		System.out.print("문자열을 입력하세요.");
 		String str2 = sc.nextLine();
-		 
+		int[] idxArr = new int[str2.length()];
+		
+		int index = 0;
+		
 		for(int i = 0; i < str2.length(); i++) {
 			for(int j = 0; j < i; j++) {
 				if(str2.charAt(i) == str2.charAt(j)) {
-					str2 = str2.replace(
-							String.valueOf(str2.charAt(i)), "");
-					i = 0;
+					idxArr[index++] = i;
+					break;
 				}
 			}
 		}
 		
-		System.out.println(str2);
+		String dupStr = "";
+		
+		for(int i = 0; i < str2.length(); i++) {
+			boolean isDup = false;
+			for(int j = 0; j < index; j++) {
+				if(i == idxArr[j]) {
+					isDup = true;
+					break;
+				}
+			}
+			
+			if(!isDup) {
+				dupStr += str2.charAt(i);
+			}
+		}
+		
+		System.out.println(dupStr);
 		
 //		3. 사용자가 입력한 문자열에서 3의 배수 자리의 문자는 3으로 
 //		5의 배수 자리의 문자는 5로 변경하여 출력하세요.

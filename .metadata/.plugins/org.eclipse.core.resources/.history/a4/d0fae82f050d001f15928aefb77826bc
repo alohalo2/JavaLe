@@ -1,0 +1,42 @@
+package chap16_usefulclass;
+
+public class _11_WrapperClass {
+
+	public static void main(String[] args) {
+		
+		// 1. Integer 객체(래퍼 클래스의 객체) 생성
+		// 자바 9 버전부터 래퍼클래스의 생성자 사용 불가능
+		Integer num1 = 10;
+		Integer num2 = Integer.valueOf(300);
+		Integer num3 = Integer.valueOf("300");
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+
+	}
+
+}

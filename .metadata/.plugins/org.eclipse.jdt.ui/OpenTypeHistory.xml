@@ -1,10 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <typeInfoHistroy>
-    <typeInfo handle="=JavaProgramming/src&lt;chap99_homework04.parent{Parent.java[Parent" modifiers="1" timestamp="1714641649661"/>
-    <typeInfo handle="=JavaProgramming/src&lt;chap99_homework04.employee{Employee.java[Employee" modifiers="1025" timestamp="1714642294148"/>
-    <typeInfo handle="=JavaProgramming/src&lt;chap99_homework04.middle{Max3.java[Max3" modifiers="0" timestamp="1714651624543"/>
-    <typeInfo handle="=JavaProgramming/src&lt;chap99_homework04.middle{Median.java[Median" modifiers="0" timestamp="1714653787159"/>
-    <typeInfo handle="=JavaProgramming/src&lt;chap99_homework04.advance{Employee.java[Employee" modifiers="1025" timestamp="1714695401551"/>
     <typeInfo handle="=JavaProgramming/src&lt;chap12_interface.board{Board.java[Board" modifiers="513" timestamp="1714708382882"/>
     <typeInfo handle="=JavaProgramming/src&lt;chap12_interface.multiinherit{MotherInterface.java[MotherInterface" modifiers="513" timestamp="1714714056285"/>
     <typeInfo handle="=JavaProgramming/src&lt;chap12_interface.multiinherit{FatherInterface.java[FatherInterface" modifiers="513" timestamp="1714714012734"/>
@@ -15,7 +10,4 @@
     <typeInfo handle="=JavaProgramming/src&lt;chap12_interface.device{ElectronicDevice.java[ElectronicDevice" modifiers="513" timestamp="1714719208159"/>
     <typeInfo handle="=JavaProgramming/src&lt;chap12_interface.device{Display.java[Display" modifiers="513" timestamp="1714718796232"/>
     <typeInfo handle="=JavaProgramming/src&lt;chap12_interface.device{Speaker.java[Speaker" modifiers="513" timestamp="1714718832507"/>
-    <typeInfo handle="=JavaProgramming/src&lt;chap99_homework05.basic{Car.java[Car" modifiers="513" timestamp="1714721413814"/>
-    <typeInfo handle="=JavaProgramming/src&lt;chap99_homework05.basic{ElectronicCar.java[ElectronicCar" modifiers="513" timestamp="1714721460509"/>
-    <typeInfo handle="=JavaProgramming/src&lt;chap99_homework05.basic{FuelCar.java[FuelCar" modifiers="513" timestamp="1714721509574"/>
 </typeInfoHistroy>
