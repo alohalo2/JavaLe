@@ -12,33 +12,37 @@ public class Basic {
 
 		StringBuffer sb1 = new StringBuffer();
 		
-		int scCnt = 0;
-		
-		
 		System.out.println("첫 번째 문자열을 입력하세요.");
-		String userInput1 = sc.nextLine();
+		sb1.append(sc.nextLine());
 		
 		System.out.println("두 번째 문자열을 입력하세요.");
-		String userInput2 = sc.nextLine();
+		sb1.append(sc.nextLine());
 		
 		System.out.println("세 번째 문자열을 입력하세요.");
-		String userInput3 = sc.nextLine();
+		sb1.append(sc.nextLine());
 		
-//		sb1 = userInput1 
+		String concat = sb1.toString();
 		
+		System.out.println(concat);
+		sc.close();
 		
-		
-		
-		
+		System.out.println("-----------------------------------------");
 		
 		
 //		2. 크기가 30인 StringBuffer에 "hello"라는 문자열이 담겨있다.
 //		    비어있는 바이트의 공간을 a로 모두 채우시오.
 //		
+		StringBuffer sb2 = new StringBuffer(30);
 		
+		sb2.append("hello");
 		
+		int remainBufferSize = sb2.capacity() - sb2.length();
 		
+		for(int i = 0; i < remainBufferSize; i++) {
+			sb2.append("a");
+		}
 		
+		System.out.println(sb2);
 		
 		
 		
