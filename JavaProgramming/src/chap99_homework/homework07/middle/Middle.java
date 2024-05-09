@@ -10,13 +10,14 @@ public class Middle {
 //		1. 크기가 30인 StringBuffer에 "hello"라는 문자열이 담겨있다.
 //	    비어있는 바이트의 공간을 b, i, t가 반복되어 들어가도록 모두 채우세요.
 
-		StringBuffer sb1 = new StringBuffer(30);
+		StringBuffer sb1 = new StringBuffer(30); // 크기가 30인 StringBuffer sb1을 생
 		
-		sb1.append("hello");
+		sb1.append("hello"); // sb1에 "hello"를 담는다.
 		
-		int remainBufferSize = sb1.capacity() - sb1.length();
+		int remainBufferSize = sb1.capacity() - sb1.length(); // sb1에 남은 크기를 계산
 		
-		for(int i = 0; i < remainBufferSize; i++) {
+		for(int i = 0; i < remainBufferSize; i++) { // sb1 남은 크기만큼 for문을 돌려서 해당하는 인덱스 번째에 
+			                                        // "b", "i", "t"를 insert 메소드를 이용해서 넣는다.
 			if(i > 4) {
 				if(i % 3 == 2) {
 					sb1.insert(i, "b");
@@ -43,13 +44,15 @@ public class Middle {
 		
 		char[] chArr = new char[sb2.length()];
 		
-		sb2.reverse();
+		sb2.reverse(); // sb2를 거꾸로 뒤집는다.
 
 		if (userNum >= 0 && userNum < sb2.length()) {
 
 	            sb2.getChars(0, sb2.length(), chArr, 0);
+	            // getCars: 0 ~ sb2.length()까지를 chArr로 0번째부터 입력
+	            // sb2에 chArr를 담는다.
 
-	            char result = chArr[userNum];
+	            char result = chArr[userNum]; // userNum이 인덱스로 들어간 chArr의 배열을 result로 선언한다. 
 	            System.out.println("결과: " + result);
 	        } else {
 	            System.out.println("잘못된 인덱스입니다.");

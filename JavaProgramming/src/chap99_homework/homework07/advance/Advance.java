@@ -18,15 +18,23 @@ public class Advance {
 		String userInput = sc.nextLine();
 		
 		StringBuilder sb = new StringBuilder();
-		String result = null;
+		
+		char prechar = '\0';
+
+//		'\0'는 널 문자(Null character)를 나타냅니다. 이는 문자열이나 문자 배열에서 종료를 나타내는데 사용됩니다. 
+//		Java에서는 문자열의 끝을 표시하기 위해 널 문자를 사용하지 않습니다. 대신, 문자열의 끝은 문자열의 길이로 판단됩니다.
+//
+//		이 코드에서는 이전 문자를 추적하기 위해 초기에 \0를 사용했습니다. 이전 문자가 없는 경우를 표시하기 위한 것입니다. 
+//		코드에서 이전 문자를 초기화할 때, 이전 문자가 없음을 나타내기 위해 사용된 것입니다. 이후에는 실제 문자로 대체됩니다.
 		
 		for(int i = 0; i < userInput.length(); i++) {
-			if(userInput.indexOf(sb.charAt(i)) != userInput.charAt(i)) {
-				result += userInput.charAt(i);
+			char currentchar = userInput.charAt(i);
+			if(userInput.indexOf(currentchar) == i || userInput.indexOf(currentchar) < i) {
+				sb.append(userInput.charAt(i));
 			}
 		
 		}
-		System.out.println(result);
+		System.out.println(sb);
 		
 		sc.close();
 		
