@@ -63,7 +63,12 @@ public class _10_HashMapEx {
 		// 현재 List<Integer>에 해당하는 두 수의 합은 구해졌으며 Map에 List에 있는 값들이 key가 되고 
 		// 합의 갯수가 value가 되도록 코딩
 		for(int i = 0; i < sumList.size(); i++) { // 외부 for문은 sumList를 돌고
-			int sumcnt = 1;
+			int sumcnt = 1; // 두 수의 합이 최소한 1번은 등장해야 하므로 sumcnt는 1로 초기화
+			
+//		sumcnt가 외부 for문 안에서 초기화 되어야 하는 이유:
+//		sumCnt를 외부 for 루프 안에서 초기화해야 하는 이유는 각 합의 개수를 정확하게 계산하기 위해서입니다.
+//		외부 for 루프는 모든 합을 구하는 과정을 나타냅니다. 이 과정에서 각 합에 대한 개수를 정확하게 계산하려면, 
+//		각 합을 처리할 때마다 sumCnt를 초기화하는 것이 필요합니다. 이를 위해 sumCnt는 외부 for 루프 안에서 초기화되어야 합니다.
 			
 			for(int j = 0; j < sumList.size(); j++) { // 내부 for문은 
 				if(i != j) {
