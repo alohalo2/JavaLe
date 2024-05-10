@@ -1,5 +1,0 @@
-package chap99_homework.mammalia;
-
-public class Lion extends Cat {
-
-}

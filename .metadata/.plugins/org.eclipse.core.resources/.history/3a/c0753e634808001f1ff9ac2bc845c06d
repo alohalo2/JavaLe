@@ -1,5 +1,0 @@
-package chap10_polymorphim.tv;
-
-public class SamsungTv extends Tv {
-
-}
