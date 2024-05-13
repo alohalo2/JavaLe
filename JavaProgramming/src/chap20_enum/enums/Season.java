@@ -3,7 +3,7 @@ package chap20_enum.enums;
 public enum Season {
 
 	SPRING("봄", 3, 4, 5),
-	SUMMER("여름", 6, 7, 8 ),
+	SUMMER("여름", 6, 7, 8),
 	FALL("가을", 9, 10, 11),
 	WINNTER("겨울", 12, 1, 2);
 	
@@ -16,8 +16,8 @@ public enum Season {
 	Season(String seasonStr, int seasonMonth0, int seasonMonth1, int seasonMonth2) {
 		this.seasonStr = seasonStr;
 		this.seasonMonths[0] = seasonMonth0;
-		this.seasonMonths[1] = seasonMonth0;
-		this.seasonMonths[2] = seasonMonth0;
+		this.seasonMonths[1] = seasonMonth1;
+		this.seasonMonths[2] = seasonMonth2;
 	}
 	
 	public String getSeasonStr() {
@@ -34,9 +34,9 @@ public enum Season {
 		
 		for(int i = 0; i < this.seasonMonths.length; i++) {
 			if(i == this.seasonMonths.length - 1) {
-				System.out.println(this.seasonMonths[i]);
+				System.out.print(this.seasonMonths[i]);
 			} else {
-				System.out.println(this.seasonMonths[i] + ",");
+				System.out.print(this.seasonMonths[i] + ",");
 			}
 		}
 		System.out.println("일입니다.");

@@ -6,18 +6,9 @@ public class _07_SeasonEnum {
 
 	public static void main(String[] args) {
 		
-		Season summer = Season.SUMMER;
+		Season summer = Season.FALL;
 				
 		summer.printSeasonMonths();
-		
-		
-		
-		
-		
-		
-		
-		
-		
 		
 
 	}
