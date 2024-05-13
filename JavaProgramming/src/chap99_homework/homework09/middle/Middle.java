@@ -43,10 +43,10 @@ public class Middle {
 		
 		for(int i = 0; i < studentNameList.size(); i++) {
 			map.put(studentNameList.get(i),scores[i]);
-			
-//			System.out.println(map);
-			
+	
 		}
+		
+		System.out.println(map);
 		
 		while(iterator.hasNext()) {
 			Entry<String, Integer> entry = iterator.next();
@@ -63,15 +63,22 @@ public class Middle {
 		}
 		
 	
-		
-		
-		
 		sc.close();
 		
 //		2. 매개변수로 Map<Integer, Integer>이 주어졌을 때 key, value의 곱이 가장 큰 Entry를 리턴하는 메소드 getMaxMul을 구현하세요.
 
 		
-		
+//		public static Integer getMaxMul(int num1, int num2) {
+//			
+//			Map<String, Integer> map = new HashMap<>();
+//			Set<Entry<String, Integer>> entrySet = map.entrySet();
+//			Iterator<Entry<String, Integer>> iterator = entrySet.iterator();
+//			
+//			
+//			Integer mulresult = multiply(num1, num2);
+//			
+//			return;
+//		}
 		
 		
 		
@@ -127,6 +134,11 @@ public class Middle {
 		
 		
 
+	}
+
+	private static Integer multiply(int i, int j) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

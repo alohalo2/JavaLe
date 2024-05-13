@@ -85,27 +85,27 @@ public class Basic {
 			 		break;
 				 
 			 	case 2:
-				 
+			 		// 이 부분 문제가 있음
 			 		System.out.println("검색할 이름을 입력하세요.");
 			 		sc.nextLine();
 			 		String userInput = sc.nextLine();
 			 		
-			 		boolean found = false;
-			 		
-			 		while(iterator.hasNext()) { 
-						Entry<String, String> entry = iterator.next(); 
-
-						if(entry.getKey().equals(userInput)) {
-							System.out.print(entry.getKey() +  "의 전화번호: " + entry.getValue());
-							found = true;
-							break;
-						} 
-				
-					}
-			 		
-			 		if(!found) {
-			 			System.out.println("저장된 이름이 아닙니다.");
-			 		}
+//			 		boolean found = false;
+//			 		
+//			 		while(iterator.hasNext()) { 
+//						Entry<String, String> entry = iterator.next(); 
+//
+//						if(entry.getKey().equals(userInput)) {
+//							System.out.print(entry.getKey() +  "의 전화번호: " + entry.getValue());
+//							found = true;
+//							break;
+//						} 
+//				
+//					}
+//			 		
+//			 		if(!found) {
+//			 			System.out.println("저장된 이름이 아닙니다.");
+//			 		}
 				 
 			 		break;
 				 
@@ -124,7 +124,7 @@ public class Basic {
 
 	}
 	
-	public static PhoneBook generatePhoneBook(Scanner sc, String name, String phoneNumber) {
+	public static Map<String, String> generatePhoneBook(Scanner sc, String name, String phoneNumber) {
 	
 		Map<String, String> map2 = new HashMap<>();
 		
@@ -137,7 +137,7 @@ public class Basic {
 		
 		map2.put(name, phoneNumber);
 		
-		return new SavePhoneBook(name, phoneNumber);
+		return map2;
 		 
 		
 	}
