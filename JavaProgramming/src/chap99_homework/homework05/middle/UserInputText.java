@@ -1,4 +1,4 @@
-package chap99_homework05.middle;
+package chap99_homework.homework05.middle;
 
 import java.util.Scanner;
 
@@ -14,9 +14,9 @@ public class UserInputText {
 		// aabbccab
 		// abc
 		
-		String[] strArr = new String[strArr.length];
+//		String[] strArr = new String[strArr.length];
 		
-		String strArr[] = sc.nextLine();
+//		String strArr[] = sc.nextLine();
 		
 		
 		

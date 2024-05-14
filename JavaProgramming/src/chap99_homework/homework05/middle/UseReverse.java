@@ -1,4 +1,4 @@
-package chap99_homework05.middle;
+package chap99_homework.homework05.middle;
 
 public class UseReverse {
 
@@ -6,7 +6,7 @@ public class UseReverse {
 		
 		Reverse reverse = new Reverse();
 
-		reverse.reverseString("text");
+//		reverse.reverseString("text");
 		
 	}
 

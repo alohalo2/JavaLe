@@ -18,37 +18,44 @@ public enum RepresentativeFood {
 	private String country;
 	private String food;
 	
-	String[] strContryArr = new String[4];
-	String[] strFoodArr = new String[4];
-	
-	
+
 	RepresentativeFood(String country, String food) {
 		this.country = country;
 		this.food = food;
 	}
 	
 	public String getCountry() {
-		return this.country;
+		return country;
+	}
+	
+	public void setCountry(String country) {
+		 this.country = country;
 	}
 	
 	public String getFood() {
-		return this.food;
+		return food;
+	}
+	
+	public void setFood(String food) {
+		this.food = food;
 	}
 	
 	public void notifyFood(String country)  {
 
-		Scanner sc = new Scanner(System.in);
-		String userInput = sc.nextLine();
-		
-		for(int i = 0; i < strContryArr.length; i++) {
-			if(strContryArr[i] == userInput) {
-				System.out.println(this.strContryArr[i]+ "의 대표음식은 " + this.strFoodArr[i]);
-			}
+		if(this.country.equals(country)) {
+			System.out.println(country+ "의 대표음식은 " + this.getFood());
 		}
-		sc.close();
+		
+//		String[] strContryArr = new String[4];
+//		String[] strFoodArr = new String[4];
+//		
+//		
+//		for(int i = 0; i < strContryArr.length; i++) {
+//			if(strContryArr[i] == getCountry) {
+//				System.out.println(strContryArr[i]+ "의 대표음식은 " + strFoodArr[i]);
+//			}
+//		}
+	
 	}
-	
-	
-	
 	
 }

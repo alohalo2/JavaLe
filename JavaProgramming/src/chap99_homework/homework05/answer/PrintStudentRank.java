@@ -1,4 +1,4 @@
-package chap99_homework.homework05;
+package chap99_homework.homework05.answer;
 
 public class PrintStudentRank {
 	// 학과별 배열을 만들어주는 메소드

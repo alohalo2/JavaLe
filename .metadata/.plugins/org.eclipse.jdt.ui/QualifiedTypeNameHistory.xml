@@ -48,7 +48,14 @@
     <fullyQualifiedTypeName name="java.util.Collections"/>
     <fullyQualifiedTypeName name="java.util.Date"/>
     <fullyQualifiedTypeName name="chap14_objectarray.car.Car"/>
-    <fullyQualifiedTypeName name="java.util.Iterator"/>
-    <fullyQualifiedTypeName name="java.util.Map.Entry"/>
     <fullyQualifiedTypeName name="chap19_generic.box.Box"/>
+    <fullyQualifiedTypeName name="chap19_generic.board.FreeBoard"/>
+    <fullyQualifiedTypeName name="java.util.Map.Entry"/>
+    <fullyQualifiedTypeName name="java.util.Iterator"/>
+    <fullyQualifiedTypeName name="java.util.Map"/>
+    <fullyQualifiedTypeName name="chap20_enum.enums.DefaultMonth"/>
+    <fullyQualifiedTypeName name="chap20_enum.enums.MultiValueMonth"/>
+    <fullyQualifiedTypeName name="chap20_enum.enums.RGB"/>
+    <fullyQualifiedTypeName name="chap20_enum.enums.MethodMonth"/>
+    <fullyQualifiedTypeName name="chap20_enum.enums.Season"/>
 </qualifiedTypeNameHistroy>
