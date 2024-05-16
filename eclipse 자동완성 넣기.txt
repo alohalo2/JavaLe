@@ -1,0 +1,13 @@
+① eclipse -> window -> Preferences
+
+② Java -> editor -> content Assist
+ 
+(위 과정으로 들어가는게 귀찮다면, type filter text 검색란에 content assist를 바로 검색하자)
+그리고 큰 사각형 영역의 Auto Activation을 주목!
+
+③ Auto activation delay 입력란은 0 값으로 설정, 
+    Auto activation triggers for java 입력란 에는 아래 문자열 코드를 전체 복사해서 붙여놓기!  / <=$:{.@qwertyuioplkjhgfdsazxcvbnm_QWERTYUIOPLKJHGFDSAZXCVBNM
+-> Apply and close!
+
+Java -> Editor -> Content Assist에서 Disable insertion trggers exept 'Enter' 를 활성화 해주면 엔터로 자동완성을 변경할 수 있다. (엔터를 제외한 트리거 비활성화)
+
