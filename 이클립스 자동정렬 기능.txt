@@ -1,0 +1,5 @@
+eclipse 자동정렬 기능
+
+단축키: ctrl + shift + f
+
+window ->Java -> Code Style -> Formatter에서 Avtive profile에서 이름 설정하고 new눌러서 설정

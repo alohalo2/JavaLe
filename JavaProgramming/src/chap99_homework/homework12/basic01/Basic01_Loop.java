@@ -21,13 +21,13 @@ public class Basic01_Loop {
 //		2. 2의 거듭제곱을 10회동안 반복하며 출력하세요.(2 * 2 = 4, 2 * 2 * 2 = 8 .....) 10회 반복 출력
 
 		int num1 = 2;
+		int result1 = 1;
 		
 		for(int i = 1; i <= 10; i++) {
-			int result1 = 1;
-			for(int j = 1; j < i; i++) {
-				result1 *= num1;
+			for(int j = 1; j <= 10; i++) {
+				result1 *= j;
 			}
-			System.out.println("2 " + " * " + num1 + " = " + result1);
+			System.out.println(num1 + " * " + i + " = " + result1);
 		}
 
 
