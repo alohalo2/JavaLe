@@ -27,7 +27,7 @@ public class _02_SwichCase {
 		
 		int num = 129412;
 		
-		// num이 3의 배수인지 아닌지를 출력하는 swich case문으로 작성하세요.
+		// num이 3의 배수인지 아닌지를 출력하는 switch case문으로 작성하세요.
 		
 		switch(num % 3) {
 			case(0):

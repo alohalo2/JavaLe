@@ -13,7 +13,7 @@ public class Basic01_TypeConversion {
 
 		String userNum1 = "";
 		String userNum2 = "";
-		int result1 = 0;
+		String result1 = "";
 		
 		System.out.println("첫 번째 정수를 입력하세요.");
 		userNum1 = sc.nextLine();
@@ -21,13 +21,17 @@ public class Basic01_TypeConversion {
 		System.out.println("두 번째 정수를 입력하세요.");
 		userNum2 = sc.nextLine();
 		
-		for(int i = 0; i < userNum1.length(); i++) {
+		result1 = userNum1 + userNum2;
 		
-			userNum1.charAt(i);
-			userNum2.charAt(i);
+		try {
+			int number = Integer.parseInt(result1);
+			System.out.println(number);
+			checkType(number);
+		} catch (NumberFormatException e) {
+			System.out.println(e.getMessage());
 		}
-		System.out.println("두 정수의 합: " + result1);
-		
+
+
 //		2. 사용자가 두 개의 정수(a, b)를 입력해서 a / b의 연산결과를 실수로 출력하세요.(단, b는 0을 입력할 수 없습니다.)
 
 //		int userNum3 = 1;
@@ -113,5 +117,35 @@ public class Basic01_TypeConversion {
 		sc.close();
 		
 	}
+	
+	public static void checkType(Object value) { // Object value를 매개변수로 받는 checkType이라는 메소드 생성
+        if (value instanceof Integer) {  // instanceof 라는 메소드를 통해서 데이터 타입을 확인
+            System.out.println(value + "는 int 타입입니다.");
+        } else if (value instanceof String) {
+            System.out.println(value + "는 String 타입입니다.");
+        } else {
+            System.out.println(value + "는 다른 타입입니다.");
+        }
+    }
+	
+//	< instanceof >
+	
+//	instanceof는 자바의 키워드로, 특정 객체가 특정 클래스나 인터페이스의 인스턴스인지 여부를 검사할 때 사용됩니다. 
+//	이 키워드는 주로 객체의 타입을 확인하거나 형변환을 안전하게 수행하기 위해 사용됩니다.
+//	instanceof는 타입 안전성을 보장하면서 다운캐스팅을 수행할 수 있게 해주는 중요한 키워드입니다.
+//	
+	
+//	object instanceof Type
+//	
+	
+//	여기서 object는 검사할 객체이고, Type은 클래스나 인터페이스입니다. 
+//	만약 object가 Type의 인스턴스라면, 이 표현식은 true를 반환하고, 그렇지 않으면 false를 반환합니다.
+//	
+//	<요약>
+//	1. instanceof는 객체가 특정 클래스나 인터페이스의 인스턴스인지 여부를 확인하는 데 사용됩니다.
+	
+//	2. instanceof는 상속 계층 구조에서 부모 클래스나 인터페이스 타입을 확인할 때 유용합니다.
+	
+//	3. 타입을 확인한 후 안전하게 형변환을 수행하는 데 사용할 수 있습니다.
 
 }
