@@ -1,5 +1,6 @@
 package chap99_homework.homework12.basic01;
 
+import java.util.Iterator;
 import java.util.Scanner;
 
 public class Basic01_Loop {
@@ -125,88 +126,262 @@ public class Basic01_Loop {
 //		System.out.println("정수를 입력하세요.");
 //		int userNum4 = sc.nextInt();
 //		
-//		int multiple3 = 0;
-//		int multiple4 = 0;
-//		int divisor3 = 0;
-//		int divisor4 = 0;
-//		int lcm = 0;
-//		int gcd = 0;
-//		
-//		int [] mulArr3 = new int[5];
-//		int [] mulArr4 = new int[5];
-//		
-//		for(int i = 0; i < 5; i++) {
-//			mulArr3[i] = userNum3 * i;	
-//		}
-//		
-//		for(int i = 0; i < 5; i++) {
-//			mulArr4[i] = userNum4 * i;	
-//		}
-		
-		
-		
-		// 최소 공배수
-		
-		
-		
-		// 최대 공약수
-		
-		
+//		System.out.println("사용자가 입력한 두 정수의 최소공배수: " + lcm(userNum3, userNum4));
+//		System.out.println("사용자가 입력한 두 정수의 최대공약수: " + gcd(userNum3, userNum4));
+//		System.out.println("-----------------------------");
 		
 //		8. 중첩 for문으로 이용해서 다음과 같이 출력하세요.
 
-//			   01234
+//			   01234(j)
 //		8-1. 0 *
-//		     1 * *
-//		     2 * **
-//		     3 * ***
-//		     4 * ****
+//		     1 **
+//		     2 ***
+//		     3 ****
+//		     4 *****
+//		    (i)
 		
-		for(int i = 0; i < 5; i++) {
-			System.out.println("*");
-			for(int j = 1; j <= i; j++) {
-				System.out.print("*");
+//		for(int i = 0; i < 5; i++) { // i = 세로
+//			for(int j = 0; j < 5; j++) { // j = 가로
+//				if(j <= i) {
+//					System.out.print("*");
+//				}
+//			}
+//			System.out.println(); /* == System.out.print("\n"); */
+//		}
+	
+//		       01234(j)
+//		8-2. 0 *****
+//		     1  ****
+//		     2   ***
+//		     3    **
+//		     4     *
+//		    (i) 
+		
+//		for(int i = 0; i < 5; i++) { // i = 세로
+//			for(int j = 0; j < 5; j++) { // j = 가로 
+//				if(i <= j)
+//					System.out.print("*");
+//				else
+//					System.out.print(" ");
+//			}
+//			
+//			System.out.println();
+//		}
+		
+//		8-3.
+//		 0123456 
+//		0 ****** *****
+//	    1  ***** ****
+//	    2   **** ***
+//	    3    *** **
+//	    4     ** *
+//		5      *
+		
+//		for(int i = 0; i < 6; i++) { // i = 세로
+//			for(int j = 0; j < 6; j++) { // j = 가로 
+//				if(i <= j) {
+//					System.out.print("*");
+//				} else {
+//					System.out.print(" ");
+//				}	
+//			}
+//			
+//			for(int k = 5; k > i; k--) {
+//					System.out.print("*");
+//			}
+//			
+//			System.out.println();
+//		}	
+		
+//		8-4.
+		
+//		  012345  01234
+//		0 	   * 0 
+//		1     ** 1*
+//	    2    *** 2**
+//	    3   **** 3***
+//	    4  ***** 4****
+//	    5 ****** 5*****
+//	   (i)
+		
+//		for(int i = 0; i < 6; i++) { 
+//			for(int j = 6; j >= 0; j--) {
+//				if(i < j) {
+//					System.out.print(" ");
+//				} else {
+//					System.out.print("*");
+//				}
+//			}
+//			
+//			for(int k = 0; k < i; k++) { // 
+//				System.out.print("*");
+//			}
+//			System.out.println();
+//		}
+			
+//		8-5. 홀수를 입력하면 그에 맞는 다이아몬드(마름모) 모양의 별을 구현하세요.
+		
+//		  *
+//		 ***
+//		*****
+//		 ***
+//		  *
+		
+//		System.out.println("홀수를 입력해주세요.");
+//		int userNum6 = sc.nextInt();
+//		
+//		int half1 = userNum6/2; // 사용자 설정값을 마름모 상/하단으로 나누어 작업하기 위해 2로 나누어 준다. 
+//		                       // (ex: 사용자 설정값이 7일 경우 상단은 012, 하단은 01로 5개의 인덱스가 나오는셈)  
+//		
+//		
+//		if(userNum6 % 2 == 0) {
+//			System.out.println("잘못 입력했습니다, 다시 홀수로 입력하세요.");
+//		}
+//		
+//		for(int i = 0; i <= half1; i++) { // 마름모 상단 부분 높이
+//			for(int j = 0; j < half1 - i; j++) { // half - i는 각 행별로 공백의 수를 나타냄
+//				System.out.print(" ");
+//			}
+//			for(int k = 0; k < 2 * i - 1; k++) { // 2 * i - 1은 각 행별로 별이 찍히는 수를 나타냄
+//				System.out.print("*");
+//			}
+//			System.out.println(); // 엔터값
+//		}
+//		
+//		for(int i = half1 - 1; i >= 0; i--) { // 마름모 하단 부분 높이, 하단 부분은 별이 거꾸로 찍히므로 외부 for문을 거꾸로 돌린다.
+//			for(int j = 0; j < half1 - i; j++) {
+//				System.out.print(" ");
+//			}
+//			for(int k = 0; k < 2 * i - 1; k++) {
+//				System.out.print("*");
+//			}
+//			System.out.println();
+//		}
+		
+//		8-6. 짝수를 입력하면 그에 맞는 모래시계 모양의 별을 구현하세요.
+		
+//		*****
+//		 ***
+//		  *
+//		  *
+//		 ***
+//		*****
+		
+//		System.out.println("짝수를 입력해주세요.");
+//		int userNum7 = sc.nextInt();
+//		
+//		int half2 = userNum7/2;
+//		
+//		for(int i = half2 ; i > 0; i--) {
+//			for(int j = 0; j < half2 - i; j++) { // 3 - 3 = 0, 3 - 2  = 1, 3 - 1  = 2
+//				System.out.print(" ");
+//			}
+//			for(int j = 0; j < 2 * i - 1; j++) { // 5 3 1 -1 1 3
+//				System.out.print("*");
+//			}
+//			System.out.println();
+//		}
+//		
+//		for(int i = 0; i < half2; i++) {
+//			for(int j = 0; j < (half2 - i) - 1; j++) { // 3 - i = 2, 3 = 1, 3 = 0
+//				System.out.print(" ");
+//			}
+//			for(int j = 0; j < 2 * i + 1; j++) { // 0 = 1, 1 = 3 2 = 5
+//				System.out.print("*");
+//			}
+//			System.out.println();
+//		}
+		
+
+//		8-7. 홀수를 입력하면 그에 맞는 아래 모양의 별을 구현하세요.	
+		
+//		****** ******
+//		*****   *****
+//		****     ****
+//		***       ***
+//		**         **
+//		*           *
+//		**         **
+//		***       ***
+//		****     ****
+//		*****   *****		
+//		****** ******
+		
+		
+		for(int i = 11; i >= 0; i--) {
+			for(int j = 0; j < 6; j++) {
+				if(i < 6 && i >= j) {
+					System.out.print("*");
+				} else {
+					System.out.print(" ");
+				}
+				if(i >= 6 && i <= j) {
+					System.out.print("*");
+				} else {
+					System.out.print(" ");
+				}
+			
 			}
+			System.out.println();
 		}
 		
 		
+//		8-8.
 		
-//
-//		8-2. *****
-//		      ****
-//		       ***
-//		        **
-//		         *
-
+//		  *
+//		 ***
+//		*****
+//		 ***
+//		*****
+//	   *******
+//		*****
+//	   *******
+//	  *********
+		
+		
+		
 //		9. 사용자가 q를 입력하기 전까지 계속 반복하면서 입력한 정수의 값을 더해서 출력하세요.
 
 	
 //		int sum = 0;
 //
-//		
 //		while(true) {
 //			
 //			System.out.println("정수를 입력하세요. q를 입력하면 프로그램이 종료됩니다.");
+//			
 //			String userNum5 = sc.nextLine();
 //			
-//			// 사용자 입력값을 int로 바꿔주는 코드
-//			int num = Integer.valueOf(userNum5);
-//			
-//			int[] intArr1 = new int[num];
-//			
-//			for(int i = 0; i < num; i++) {
-//				intArr1[i] = num;
-//				sum += intArr1[i];
-//			}
-//			
 //			if(userNum5.equals("q")) {
-//				System.out.println(sum);
 //				break;
 //			} 
 //			
+//			Integer num1 = Integer.valueOf(userNum5); // 사용자 입력값을 int로 바꿔주기 위해 Integer의 valueOf 메소드 사용
+//			                                          // 객체를 반환해야 해서 num1 변수가 필요함
+//			
+//			if(num1!= null) {
+//				sum += num1;
+//			}
+//			
 //		}
-		
+//		System.out.println("사용자가 입력한 수의 합은: " + sum);
+//		
 		sc.close();
 	}
 
+	
+	// 최대공약수를 반복문으로 구하는 함수 (유클리드 호제법)
+    public static int gcd(int usernum3, int usernum4) {
+        while (usernum4 != 0) {
+            int temp = usernum4;
+            usernum4 = usernum3 % usernum4;
+            usernum3 = temp;
+        }
+        return usernum3;
+    }
+
+    // 최소공배수를 구하는 함수
+    public static int lcm(int usernum3, int usernum4) {
+        return (usernum3 * usernum4) / gcd(usernum3, usernum4);
+    }
+	
 }
