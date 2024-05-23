@@ -293,40 +293,59 @@ public class Basic01_Loop {
 //		}
 		
 
-//		8-7. 홀수를 입력하면 그에 맞는 아래 모양의 별을 구현하세요.	
+//		8-7. 아래 모양의 별을 구현하세요.	
 		
-//		****** ******
-//		*****   *****
-//		****     ****
-//		***       ***
-//		**         **
-//		*           *
-//		**         **
-//		***       ***
-//		****     ****
-//		*****   *****		
-//		****** ******
-		
-		
-		for(int i = 11; i >= 0; i--) {
-			for(int j = 0; j < 6; j++) {
-				if(i < 6 && i >= j) {
-					System.out.print("*");
-				} else {
-					System.out.print(" ");
-				}
-				if(i >= 6 && i <= j) {
-					System.out.print("*");
-				} else {
-					System.out.print(" ");
-				}
-			
-			}
-			System.out.println();
-		}
+//		************
+//		*****  *****
+//		****    ****
+//		***      ***
+//		**        **
+//		*          *
+//		**        **
+//		***      ***
+//		****    ****
+//		*****  *****		
+//		************
 		
 		
-//		8-8.
+//		for(int i = 6; i > 0; i--) { // 왼쪽 상단
+//			for(int j = 0; j < 6; j++) {
+//				if(j < i) {
+//					System.out.print("*");
+//				} else {
+//					System.out.print(" ");
+//				}
+//			}
+//			for(int k = 5; k >= 0; k--) { // 오른쪽 상단
+//					if(k < i) {
+//						System.out.print("*");
+//					}else {
+//						System.out.print(" ");
+//					}
+//			}
+//			System.out.println();
+//		}
+//		for(int i = 2; i <= 6; i++) { // 왼쪽 하단
+//			for(int j = 0; j < 6; j++) {
+//				if(j < i) {
+//					System.out.print("*");
+//				} else {
+//					System.out.print(" ");
+//				}
+//			}
+//			for(int k = 7; k > 1; k--) { // 오른쪽 하단
+//				if(k > i + 1) {
+//					System.out.print(" ");
+//				}else {
+//					System.out.print("*");
+//				}
+//		}
+//			System.out.println();
+//		}
+		
+		
+		
+//		8-8. 아래 모양의 별을 구현하세요.	
 		
 //		  *
 //		 ***
@@ -337,6 +356,18 @@ public class Basic01_Loop {
 //		*****
 //	   *******
 //	  *********
+		
+		for(int i = 0; i < 3; i++) {
+			for(int j = 5; j > 0; j--) {
+				if(i < j) {
+					System.out.print(" ");
+				} else {
+					System.out.print("*");
+				}
+			}
+			System.out.println();
+		}
+		
 		
 		
 		
