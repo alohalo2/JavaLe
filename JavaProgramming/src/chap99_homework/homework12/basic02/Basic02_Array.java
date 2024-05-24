@@ -69,7 +69,7 @@ public class Basic02_Array {
 //		System.out.println("사용자가 입력한 정수들의 평균: " + avg);
 
 //		4. 1부터 100까지의 숫자 중에서 짝수만 배열에 저장하고 배열의 합을 계산하여 출력하세요.
-		
+
 //		int[] intArr4 = new int[101];
 //		int sum2 = 0;
 //		
@@ -93,7 +93,7 @@ public class Basic02_Array {
 //		}
 //		
 //		System.out.println("1~100까지의 숫자 중 홀수들의 합: " + sum3);
-	
+
 //		5. 사용자가 입력한 10개의 정수를 배열에 저장하고 최소값과 최대값을 찾아서 출력하세요.
 
 //		int[] intArr6 = new int[10];
@@ -113,7 +113,7 @@ public class Basic02_Array {
 //			
 //		System.out.println("사용자가 입력한 수 중 최대값: " + max);
 //		System.out.println("사용자가 입력한 수 중 최소값: " + min);
-		
+
 //		6. 사용자가 입력한 5개의 문자열을 배열에 저장하고 길이가 가장 긴 문자열과 길이가 가장 작은 문자열을 출력하세요.
 
 //		String[] strArr1 = new String[5];
@@ -138,7 +138,7 @@ public class Basic02_Array {
 //		
 //		System.out.println("사용자가 입력한 문자열 중 가장 긴 문자열: " + strMax);
 //		System.out.println("사용자가 입력한 문자열 중 가장 짧은 문자열: " + strMin);
-		
+
 //		7. 두 개의 정수형 배열을 만들고 1 ~ 100까지의 랜덤한 값으로 첫 번째 배열은 4개 두 번째 배열은 3개를 저장하고 두 배열을 합친 새로운 배열을 생성하세요.
 
 //		int[] intArr7 = new int[4];
@@ -168,30 +168,30 @@ public class Basic02_Array {
 //			System.out.print(newArr1[i] + " ");
 //		}
 
-		
 //		8. 사용자가 문자열을 입력하는데 문자열 사이사이에 -을 넣어 구분자로 만들어준다. -기준으로 잘라진 문자열 배열을 생성하고 잘라진 문자열 중에
 //		    가장 길이가 긴 문자열의 인덱스와 그 문자열을 출력하세요.
-		
-		System.out.println("문자열을 입력하세요.");
+
+		System.out.println("'-'를 넣어 구분자로 나누어진 문자열을 입력하세요.");
 		String userInput1 = sc.nextLine();
-		
+
 		String[] str = userInput1.split("-");
-		
-		for(int i = 0; i < str.length; i++) {
+
+		String longest = null;
+		int index = 0;
+
+		for (int i = 0; i < str.length; i++) {
 			System.out.print(str[i] + " ");
 		}
-		
-		for(int i = 0; i < str.length; i++) {
-			for(int j = 0; j < str.length; j++) {
-				if(str[i].length() < str[j].length()) {
-					
+
+		for (int i = 0; i < str.length; i++) {
+			for (int j = 0; j < str.length; j++) {
+				if (str[i].length() < str[j].length()) {
+					longest = str[j];
+					index = j;
 				}
 			}
 		}
-		
-		
-		
-		
+		System.out.println("가장 긴 문자열: " + longest + ", 그 인덱스: " + index);
 
 		sc.close();
 

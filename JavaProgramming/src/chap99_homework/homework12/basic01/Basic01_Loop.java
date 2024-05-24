@@ -357,19 +357,157 @@ public class Basic01_Loop {
 //	   *******
 //	  *********
 		
-		for(int i = 0; i < 3; i++) {
-			for(int j = 5; j > 0; j--) {
-				if(i < j) {
-					System.out.print(" ");
-				} else {
-					System.out.print("*");
-				}
-			}
-			System.out.println();
+//		for(int i = 0; i < 3; i++) {
+//			for(int j = 5; j > 0; j--) {
+//				if(i < j) {
+//					System.out.print(" ");
+//				}
+//			}
+//			for(int k = 0; k < 2 * i + 1; k++) {
+//				System.out.print("*");
+//			}
+//			System.out.println();
+//		}
+//		for(int i = 0; i < 3; i++) {
+//			for(int j = 4; j > 0; j--) {
+//				if(i < j) {
+//					System.out.print(" ");
+//				}
+//			}
+//			for(int k = 0; k < 2 * i + 3; k++) {
+//				System.out.print("*");
+//			}
+//			System.out.println();
+//		}
+//		for(int i = 0; i < 3; i++) {
+//			for(int j = 3; j > 0; j--) {
+//				if(i < j) {
+//					System.out.print(" ");
+//				}
+//			}
+//			for(int k = 0; k < 2 * i + 5; k++) {
+//				System.out.print("*");
+//			}
+//			System.out.println();
+//		}
+		
+//		8-9. 아래 모양의 별을 구현하세요.	
+//		
+//		            *
+//		           *** 
+//		          ***** 
+//		    *****************
+//		     ***************
+//		      *************
+//		       ***********
+//		       ***** *****
+//		       ***     ***
+//		       *         *
+//		
+//		for(int i = 0; i < 3; i++) {
+//			for(int j = 0; j < 6; j++) {
+//				System.out.print(" ");
+//			}
+//			for(int k = 2; k > 0; k--) {
+//				if(i < k) {
+//					System.out.print(" ");
+//				}
+//			}
+//			for(int l = 0; l < 2 * i + 1; l++) {
+//				System.out.print("*");
+//			}
+//			System.out.println();
+//		}
+//		for(int i = 0; i < 4; i++) {
+//			for(int k = 0; k < 4; k++) {
+//				if(i > k) {
+//					System.out.print(" ");
+//				}
+//			}
+//			for(int j = 17 - 2 * i ; j > 0; j--) {
+//				System.out.print("*");
+//			}
+//			System.out.println();
+//		}
+//		for(int i = 0; i < 3; i++) {
+//			for(int j = 0; j < 3; j++) {
+//				System.out.print(" ");
+//			}
+//			for(int j = 5 - 2 * i; j > 0; j--) {
+//				System.out.print("*");
+//			}
+//			for(int k = 0; k < 2 * i; k++) {
+//				System.out.print(" ");
+//			}
+//			for(int l = 0; l < 1; l++) {
+//				System.out.print(" ");
+//			}
+//			for(int m = 0; m < 2 * i; m++) {
+//				System.out.print(" ");
+//			}
+//			for(int n = 5- 2 * i; n > 0; n--) {
+//				System.out.print("*");
+//			}
+//			System.out.println();
+//		}
+	
+//		8-10. 아래 모양의 별을 구현하세요.	
+		
+//		   
+//		    ********
+//		 **************
+//	   ******************
+//	  ********************
+//	  ********************
+//	  ********************
+//	  ********************
+//	   ******************
+//		 **************
+//		    ********
+//		     
+
+	for(int i = 0; i < 2; i++) {
+		for(int j = 6 - 3 * i; j > 0; j--) {
+			System.out.print(" ");
 		}
-		
-		
-		
+		for(int k = 0; k < 6 * i + 8; k++) { //8,14
+			System.out.print("*");
+		}
+		System.out.println();
+	}
+	for(int i = 0; i < 1; i++) {
+		for(int j = 0; j < 1; j++) {
+			System.out.print(" ");
+		}
+		for(int k = 0; k < i + 18; k++) {
+			System.out.print("*");
+		}
+		System.out.println();
+	}
+	for(int i = 0; i < 4; i++) {
+		for(int j = 0; j < 20; j++) {
+			System.out.print("*");
+		}
+		System.out.println();
+	}
+	for(int i = 1; i > 0; i--) {
+		for(int j = 0; j < 1; j++) {
+			System.out.print(" ");
+		}
+		for(int k = 0; k < i + 17; k++) {
+			System.out.print("*");
+		}
+		System.out.println();
+	}
+	for(int i = 0; i < 2; i++) {
+		for(int j = 0; j < 3 * i + 3; j++) {
+			System.out.print(" ");
+		}
+		for(int k = 0; k < 14 - 6 * i; k++) {
+			System.out.print("*");
+		}
+		System.out.println();
+	}
 		
 //		9. 사용자가 q를 입력하기 전까지 계속 반복하면서 입력한 정수의 값을 더해서 출력하세요.
 
