@@ -52,9 +52,9 @@ public class Basic02_Class {
 //		Account 클래스 생성 완료
 		
 		account.deposit(100000);
-		account.withdraw(90000);
+		account.withdraw(110000);
 		
-		System.out.println(account.getBalance());
+		System.out.println("현재 잔액: " + account.getBalance());
 		System.out.println("----------------------------");
 		
 //		7. Add라는 클래스를 만들고 정수형 매개변수 2개를 받아서 합을 리턴하는 add 메소드를 구현하세요. 
@@ -62,24 +62,6 @@ public class Basic02_Class {
 
 		System.out.println(add.add(2, 3));
 		System.out.println(add.add(2, 3, 4));
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-	
-		
 		
 	}
 	
