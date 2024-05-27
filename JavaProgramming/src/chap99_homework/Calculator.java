@@ -56,8 +56,6 @@ public class Calculator extends JFrame { // JFrame을 상속받음
     JPanel panel = new JPanel();
     panel.setLayout(null); // 기본 레이아웃 관리자 제거
 	
-    
-    
 //	public static void main(String[] args) {
 //		// 이 줄은 이벤트 디스패치 스레드에서 작업을 예약합니다. invokeLater는 GUI 생성을 스레드 안전하게 수행하도록 보장합니다.
 //		javax.swing.SwingUtilities.invokeLater(new Runnable() {
