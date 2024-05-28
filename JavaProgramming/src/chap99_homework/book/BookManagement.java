@@ -13,11 +13,11 @@ public class BookManagement {
 		while(true) {
 			
 			System.out.println("============= 메뉴를 선택하세요. ============");
-			System.out.println("1. 책 정보 입력 ");
-			System.out.println("2. 모든 책 정보 검색 ");
-			System.out.println("3. 찾을 책 정보 검색 ");
-			System.out.println("4. 도서 대출 가능 여부 ");
-			System.out.println("0. 프로그램 종료 ");
+			System.out.println("[1] 책 정보 입력 ");
+			System.out.println("[2] 모든 책 정보 검색 ");
+			System.out.println("[3] 찾을 책 정보 검색 ");
+			System.out.println("[4] 도서 대출 및 반납 ");
+			System.out.println("[0] 프로그램 종료 ");
 			int menuselect = sc.nextInt();
 			
 			
@@ -30,15 +30,19 @@ public class BookManagement {
 					break;
 				case 2:
 					
-					
-					
+					book.allSavedBookInfo();
 					
 					break;
 				case 3:
+					
+					book.findBookInfo();
+					
 					break;
 				case 4:
-					break;
 					
+					book.loanBookAvailability();
+					
+					break;
 				case 0:
 					
 					System.out.println("프로그램을 종료합니다.");
@@ -56,14 +60,9 @@ public class BookManagement {
 		
 		
 		
-		
-		
-		
-		
-		
-		
-		
-		
 	}
-
+	
+	
+	
+	
 }
