@@ -8,35 +8,11 @@ public class Main {
 
 		Scanner sc = new Scanner(System.in);
 
-		int A = sc.nextInt();
-		int B = sc.nextInt();
-		int C = sc.nextInt();
+		int N = sc.nextInt();
 
-			if(B + C >= 60) {
-				
-				if(A + (B + C) / 60 > 23) {
-					A = A + (B + C) / 60 - 24;
-				} else {
-					A += (B + C) / 60;
-				}
-				B = (B + C) % 60;
-			} else {
-				B = B + C;
-			}
+		for(int i = 0; i < )
 
-//			if ((A + ((B + C)/60)) < 24) {
-//				if (B + C < 60) {
-//					System.out.println(A + " " + (B + C));
-//				} else if (B + C >= 60) {
-//					System.out.println((A + ((B + C)/60)) + " " + ((B + C)%60));
-//				}
-//			} else if (A + ((B + C)/60) >= 24) {
-//				if (B + C < 60) {
-//					System.out.println((A - 23) + " " + (B + C));
-//				} else if (B + C >= 60) {
-//					System.out.println((A - 23 + ((B + C)/60)) + " " + (B + C)%60);
-//				}
-//			}
-			System.out.println(A + ", " + B);
+			
+		
 	}
 }
