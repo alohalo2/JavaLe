@@ -1,0 +1,20 @@
+MAP에 대한 정의
+
+
+key를 순회할 때는 keySet()
+
+value를 순회할 때는 values()
+
+key, value를 순회할 때는 entrySet()
+
+참고로 다른 형태는 보다시피 Set()형태로 반환하는데 values()의 반환형은 Collection입니다.
+
+Collection은 List, Set, Queue와 같은 Collection interface의  클래스들 중 하나 입니다. add(), remove(), clear(), size() 등으 메소드 사용이 가능합니다.
+
+
+
+1. map.entrySet()
+public Set<Map.Entry<K,​V>> entrySet()
+map.entrySet() 메소드는
+해당 map의  key와 value를 가지는 Set 객체를 리턴합니다.
+출처: https://hianna.tistory.com/573 [어제 오늘 내일:티스토리]

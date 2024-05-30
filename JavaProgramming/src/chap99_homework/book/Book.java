@@ -98,25 +98,27 @@ public class Book {
 			Book book = new Book();
 			String userInputbNum; // 사용자가 입력한 도서 번호를 저장하는 변수
 			String userConfirm; // 사용자가 입력한 내용을 컨펌하는 변수
+			boolean userFoundBookNum = false;
 
 			while (true) {
 
 				System.out.println("도서 번호를 입력하세요.");
 				userInputbNum = sc.nextLine();
-
+				
 				for (int i = 0; i < bookList.size(); i++) {
-					if (userInputbNum.equals(bookList.get(i).getBookNum())) {
-						bookCnt++;
+					if (bookList.get(i).getBookNum().equals(userInputbNum)) {
 						System.out.println("도서 번호가 중복되었습니다, 다시 입력하세요.");
-						break;
-					}
+						userFoundBookNum = true;
+						saveBookInfo(); // 재귀메소드로 중복값이 있을때 다시 for문을 돌림
+						break; // for문 루프 탈출
+					} 
 				}
-				if (bookCnt == 0) {
-					book.setBookNum(userInputbNum);
-					bookListMap.put(userInputbNum, bookList);
-					break;
-				}
-
+				if (!userFoundBookNum) {
+			        book.setBookNum(userInputbNum);
+			        bookCnt++;
+					System.out.println(bookCnt);
+			    }
+				break; // while 루프 탈출
 			}
 
 			try {
@@ -150,6 +152,7 @@ public class Book {
 
 			if (userConfirm.equalsIgnoreCase("y")) {
 				bookList.add(book);
+				bookListMap.put(book.getBookName(), bookList);
 				System.out.println("도서정보 입력 완료");
 				break;
 			} else if (userConfirm.equalsIgnoreCase("n")) {
@@ -194,10 +197,7 @@ public class Book {
 		            if (bookList.get(i).getBookNum().equals(findBookUserStr)) {
 		                System.out.println("=============================");
 		                System.out.println("도서 번호: " + bookList.get(i).getBookNum());
-<<<<<<< HEAD
-=======
 		                System.out.println("도서 제목: " + bookList.get(i).getBookName());
->>>>>>> b430bdd6962b7018245a319952f550162e7b05fa
 		                System.out.println("지은이: " + bookList.get(i).getAuthor());
 		                System.out.println("출판사: " + bookList.get(i).getPublisher());
 		                System.out.println("장르: " + bookList.get(i).getGenre());
@@ -219,43 +219,56 @@ public class Book {
 		    }
 		}
 	}
-<<<<<<< HEAD
 
-=======
->>>>>>> b430bdd6962b7018245a319952f550162e7b05fa
 	public static void loanBookAvailability() {
 
-		Iterator<String> keys = bookListMap.keySet().iterator();
-
-		while (keys.hasNext()) {
-			String key = keys.next();
-		}
+//		Iterator<String> keys = bookListMap.keySet().iterator();
+//
+//		while (keys.hasNext()) {
+//			String key = keys.next();
+//		}
 
 		Book book = new Book();
+		
+		String userLoanBookNum = null;
+		String userReturnBookNum = null;
+		boolean loanBookFound = false;
+		boolean returnBookFound = false;
 
 		System.out.println("도서를 대출 및 반납 중 선택해주세요, 도서 대출: y / 도서 반납: n");
 		String userSelec = sc.nextLine();
-		String userLoanBookNum = null;
 
 		if (userSelec.equalsIgnoreCase("y")) {
 			System.out.println("도서대출 할 도서의 번호를 입력해주세요.");
 			userLoanBookNum = sc.nextLine();
 
 			for (int i = 0; i < bookList.size(); i++) {
-				if (bookListMap.get(i).equals(userLoanBookNum)) {
+				if (bookList.get(i).getBookNum().equals(userLoanBookNum)) {
 					System.out.println("도서 대출 완료");
+					loanBookFound = true; // 도서 대출할 책을 찾았음을 표시
 					bookCnt--;
-				} else {
-					System.out.println("찾으시는 책의 보유 수량이 없어 도서대출이 불가능 합니다.");
-				}
+					System.out.println(bookCnt);
+					break; // for 루프 탈출
+				} 
 			}
-
+			if(!loanBookFound) {
+				System.out.println("찾으시는 책이 없어 도서대출이 불가능 합니다.");
+			}
 		} else {
 			System.out.println("반납할 도서의 번호를 입력해주세요.");
+			userReturnBookNum = sc.nextLine();
+			
 			for (int i = 0; i < bookList.size(); i++) {
-				if (bookListMap.get(i).equals(userLoanBookNum)) {
-
+				if (bookList.get(i).getBookNum().equals(userLoanBookNum)) {
+					System.out.println("도서 반납 완료");
+					returnBookFound = true; // 도서 반납할 책을 찾았음을 표시
+					bookCnt++;
+					break; // for 루프 탈출
+					
 				}
+			}
+			if(!returnBookFound) {
+				System.out.println("해당 반납 도서는 저장된 도서 내용과 일치하지 않습니다.");
 			}
 		}
 	}
