@@ -12,31 +12,21 @@ public class Main {
 		int B = sc.nextInt();
 		int C = sc.nextInt();
 
-			if(B + C >= 60) {
-				
-				if(A + (B + C) / 60 > 23) {
-					A = A + (B + C) / 60 - 24;
-				} else {
-					A += (B + C) / 60;
-				}
-				B = (B + C) % 60;
-			} else {
-				B = B + C;
-			}
+		if (A == B && B == C) {
+			System.out.println(10000 + A * 1000);
+		} else if (A == B) {
+			System.out.println(1000 + A * 100);
+		} else if (B == C) {
+			System.out.println(1000 + B * 100);
+		} else if (A == C) {
+			System.out.println(1000 + A * 100);
+		} else if ((A > B && B > C) || (A > C && C > B)) {
+			System.out.println(A * 100);
+		} else if ((B > A && A > C) || (B > C && C > A)) {
+			System.out.println(B * 100);
+		} else if ((C > B && B > A) || (C > A && A > B)) {
+			System.out.println(C * 100);
+		}
 
-//			if ((A + ((B + C)/60)) < 24) {
-//				if (B + C < 60) {
-//					System.out.println(A + " " + (B + C));
-//				} else if (B + C >= 60) {
-//					System.out.println((A + ((B + C)/60)) + " " + ((B + C)%60));
-//				}
-//			} else if (A + ((B + C)/60) >= 24) {
-//				if (B + C < 60) {
-//					System.out.println((A - 23) + " " + (B + C));
-//				} else if (B + C >= 60) {
-//					System.out.println((A - 23 + ((B + C)/60)) + " " + (B + C)%60);
-//				}
-//			}
-			System.out.println(A + ", " + B);
 	}
 }
