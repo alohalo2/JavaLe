@@ -8,10 +8,9 @@ public class Main {
 
 		Scanner sc = new Scanner(System.in);
 
-		int A = sc.nextInt();
-		int B = sc.nextInt();
-		int C = sc.nextInt();
+		int N = sc.nextInt();
 
+<<<<<<< HEAD
 		if (A == B && B == C) {
 			System.out.println(10000 + A * 1000);
 		} else if (A == B) {
@@ -28,5 +27,11 @@ public class Main {
 			System.out.println(C * 100);
 		}
 
+=======
+		for(int i = 0; i < )
+
+			
+		
+>>>>>>> b430bdd6962b7018245a319952f550162e7b05fa
 	}
 }

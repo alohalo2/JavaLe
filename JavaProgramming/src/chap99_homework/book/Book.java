@@ -194,6 +194,10 @@ public class Book {
 		            if (bookList.get(i).getBookNum().equals(findBookUserStr)) {
 		                System.out.println("=============================");
 		                System.out.println("도서 번호: " + bookList.get(i).getBookNum());
+<<<<<<< HEAD
+=======
+		                System.out.println("도서 제목: " + bookList.get(i).getBookName());
+>>>>>>> b430bdd6962b7018245a319952f550162e7b05fa
 		                System.out.println("지은이: " + bookList.get(i).getAuthor());
 		                System.out.println("출판사: " + bookList.get(i).getPublisher());
 		                System.out.println("장르: " + bookList.get(i).getGenre());
@@ -215,7 +219,10 @@ public class Book {
 		    }
 		}
 	}
+<<<<<<< HEAD
 
+=======
+>>>>>>> b430bdd6962b7018245a319952f550162e7b05fa
 	public static void loanBookAvailability() {
 
 		Iterator<String> keys = bookListMap.keySet().iterator();
