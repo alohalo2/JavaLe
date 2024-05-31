@@ -2,10 +2,10 @@ package chap99_homework.book;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Scanner;
 import java.util.Set;
 
@@ -152,7 +152,7 @@ public class Book {
 
 			if (userConfirm.equalsIgnoreCase("y")) {
 				bookList.add(book);
-				bookListMap.put(book.getBookName(), bookList);
+				bookListMap.put(book.getBookNum(), bookList);
 				System.out.println("도서정보 입력 완료");
 				break;
 			} else if (userConfirm.equalsIgnoreCase("n")) {
@@ -222,55 +222,61 @@ public class Book {
 
 	public static void loanBookAvailability() {
 
-//		Iterator<String> keys = bookListMap.keySet().iterator();
-//
-//		while (keys.hasNext()) {
-//			String key = keys.next();
-//		}
-
+		// 맵으로 BookNum이랑 bookList 값을 받아서 저장
+		// BookNum 비교해서 도서 대출해주고
+		// 대출시랑 반납시에 BookNum 비교해서 내용을 다시 저장하는 방식으로 코드 작성 필요
+		
 		Book book = new Book();
 		
 		String userLoanBookNum = null;
 		String userReturnBookNum = null;
 		boolean loanBookFound = false;
 		boolean returnBookFound = false;
-
+		Set<String> mapKey = bookListMap.keySet();    
+		Set<Entry<String, List<Book>>> entry = bookListMap.entrySet();
+		
 		System.out.println("도서를 대출 및 반납 중 선택해주세요, 도서 대출: y / 도서 반납: n");
 		String userSelec = sc.nextLine();
 
-		if (userSelec.equalsIgnoreCase("y")) {
-			System.out.println("도서대출 할 도서의 번호를 입력해주세요.");
-			userLoanBookNum = sc.nextLine();
-
-			for (int i = 0; i < bookList.size(); i++) {
-				if (bookList.get(i).getBookNum().equals(userLoanBookNum)) {
-					System.out.println("도서 대출 완료");
-					loanBookFound = true; // 도서 대출할 책을 찾았음을 표시
-					bookCnt--;
-					System.out.println(bookCnt);
-					break; // for 루프 탈출
-				} 
-			}
-			if(!loanBookFound) {
-				System.out.println("찾으시는 책이 없어 도서대출이 불가능 합니다.");
-			}
-		} else {
-			System.out.println("반납할 도서의 번호를 입력해주세요.");
-			userReturnBookNum = sc.nextLine();
-			
-			for (int i = 0; i < bookList.size(); i++) {
-				if (bookList.get(i).getBookNum().equals(userLoanBookNum)) {
-					System.out.println("도서 반납 완료");
-					returnBookFound = true; // 도서 반납할 책을 찾았음을 표시
-					bookCnt++;
-					break; // for 루프 탈출
-					
+		
+		Iterator<String> keys = bookListMap.keySet().iterator();
+		
+        while (keys.hasNext()){
+            String key = keys.next();
+            
+			if (userSelec.equalsIgnoreCase("y")) {
+				System.out.println("도서대출 할 도서의 번호를 입력해주세요.");
+				userLoanBookNum = sc.nextLine();
+	
+				for (int i = 0; i < bookListMap.size(); i++) {
+					if (userLoanBookNum.equals(entry)) {
+						System.out.println("도서 대출 완료");
+						loanBookFound = true; // 도서 대출할 책을 찾았음을 표시
+						bookCnt--;
+						System.out.println(bookCnt);
+						break; // for 루프 탈출
+					} 
+				}
+				if(!loanBookFound) {
+					System.out.println("찾으시는 책이 없어 도서대출이 불가능 합니다.");
+				}
+			} else {
+				System.out.println("반납할 도서의 번호를 입력해주세요.");
+				userReturnBookNum = sc.nextLine();
+				
+				for (int i = 0; i < bookList.size(); i++) {
+					if (bookList.get(i).getBookNum().equals(userLoanBookNum)) {
+						System.out.println("도서 반납 완료");
+						returnBookFound = true; // 도서 반납할 책을 찾았음을 표시
+						bookCnt++;
+						break; // for 루프 탈출
+						
+					}
+				}
+				if(!returnBookFound) {
+					System.out.println("해당 반납 도서는 저장된 도서 내용과 일치하지 않습니다.");
 				}
 			}
-			if(!returnBookFound) {
-				System.out.println("해당 반납 도서는 저장된 도서 내용과 일치하지 않습니다.");
-			}
-		}
+        }
 	}
-
 }
