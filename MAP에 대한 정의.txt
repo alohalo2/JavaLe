@@ -1,20 +1,179 @@
-MAP에 대한 정의
+<Map 정의>
+Java Map 인터페이스는 Key-Value 형태의 데이터를 저장합니다. 
+이는 매핑(mapping) 과정을 통해 데이터를 깔끔하게 정리하여 사용자가 원하는 값에 쉽고 빠르게 접근할 수 있게 해줍니다. 
+Map 인터페이스에는 HashMap, TreeMap 및 LinkedHashMap 등이 있습니다.
+
+<Map 특징>
+Key-Value 저장
+Map은 키(Key)와 값(Value) 쌍으로 데이터를 저장하며, 이를 Entry라고 합니다. 
+키는 고유한 식별자 역할을 하므로 중복이 허용되지 않지만, 값은 중복이 가능합니다.
+
+빠른 검색
+Map 인터페이스는 키를 기반으로 값을 빠르게 검색할 수 있는 기능을 제공합니다. 
+해시 함수를 사용하는 HashMap의 경우 검색 속도가 상대적으로 빠른 편이며, 이를 더욱 최적화하고자 TreeMap, LinkedHashMap 등의 구현체를 사용할 수 있습니다.
+
+**
+해시 함수(hash function)는 임의의 길이를 가진 데이터를 입력받아 고정된 길이의 값, 즉 해시값을 출력하는 함수입니다. 
+해시값은 입력 데이터로부터 유도되기 때문에 동일한 입력은 항상 동일한 해시값을 갖게 됩니다
+**
+
+여러 구현체 지원
+자바 Map은 다양한 구현체를 제공해 원하는 기능에 맞춰 선택할 수 있습니다. 
+키와 값으로 null을 허용하거나, 삽입 순서를 유지하거나, 키에 대해 정렬된 순서를 유지하는 등의 다양한 옵션을 선택할 수 있습니다.
+
+유연한 사이즈(동적 크기 조절 가능)
+Map 인터페이스는 동적으로 크기를 조절할 수 있으며, 이를 통해 저장 공간을 효율적으로 활용할 수 있습니다. 
+이로 인해 메모리 사용량이 줄어들어 전체 성능 향상에 도움이 됩니다.
 
 
-key를 순회할 때는 keySet()
+<HashMap>
 
-value를 순회할 때는 values()
+키 정렬(X), 키 null 값 (X), value null 값(X)
 
-key, value를 순회할 때는 entrySet()
+HashMap은 가장 널리 사용되는 자바 Map 인터페이스의 구현체 중 하나입니다. 
+HashMap의 주요 특징은 다음과 같습니다
 
-참고로 다른 형태는 보다시피 Set()형태로 반환하는데 values()의 반환형은 Collection입니다.
+키와 값 쌍을 저장하는 데 사용되는 데이터 구조
+키는 중복될 수 없으며, 각 키는 최대 하나의 값에만 매핑할 수 있습니다.
+삽입 순서를 유지하지 않습니다. 그 이유는 키의 해시 함수에 따라 데이터가 저장되기 때문입니다.
+null 키와 null 값이 허용됩니다. 하지만 null 키는 단 하나만 존재할 수 있습니다.
+동기화를 지원하지 않습니다. 멀티스레드 환경에서 사용할 경우 외부 동기화가 필요합니다.
 
-Collection은 List, Set, Queue와 같은 Collection interface의  클래스들 중 하나 입니다. add(), remove(), clear(), size() 등으 메소드 사용이 가능합니다.
+<TreeMap> 
+
+오름차순 키 정렬(O), 키 null 값 (X), value null 값(O)
+
+TreeMap(트리맵)은 레드-블랙 트리 자료 구조를 기반으로 구현된 맵입니다. 
+이 데이터 구조는 키(key)에 대한 정렬을 보장하는 이진 검색 트리(binary search tree)의 확장으로 다음과 같은 특징을 가지고 있습니다.
+
+키(key)를 기준으로 오름차순(default)정렬되어있음. 사용자가 정의한 정렬을 따름
+키(key)의 빠른 검색, 삽입, 삭제 (레드-블랙 트리의 특징)
+사용자가 정의한 정렬을 사용하려면, comparator를 구현해야 합니다.
+키에 null 값을 사용할 수 없음, 반면에 값(value)는 null을 저장할 수 있음.
+
+<LinkedHashMap> 
+
+키 정렬(X) 대신 저장한 순서대로 조회 가능, 키 null 값 (O), value null 값(O)
+
+LinkedHashMap은 HashMap과 거의 유사한 성능을 제공하는 데이터 구조입니다. 
+LinkedHashMap은 다음과 같은 특징이 있습니다.
+
+순서 유지: LinkedHashMap은 키와 값 쌍을 저장한 순서대로 조회할 수 있습니다.
+빠른 검색, 삽입, 삭제
+LinkedHashMap은 키-값 쌍의 삽입, 삭제 및 조회에 있어서 빠른 성능을 제공합니다.
+해시테이블(Hash table)과 Linked list로 구현
+LinkedHashMap의 내부 구조는 해시테이블과 Linked list를 사용하여 구현되어 있습니다. 
+Linked list를 통해 입력 순서를 유지하면서 동시에 해시 알고리즘을 사용해 복잡한 데이터 연산이 빠르게 이루어질 수 있게 합니다.
+키와 값에 null 저장 가능
+LinkedHashMap은 클라이언트에게 HashMap과 거의 동일한 인터페이스를 제공합니다. 따라서 여러 null 키-값 쌍을 저장할 수 있습니다.
+
+
+<Map 선언>
+Map<String, Integer> scores = new HashMap<>();
+
+<put, get, remove>
+put(key, value): Map에 키와 값 쌍을 저장합니다. 만약 이미 동일한 키가 있을 경우, 값을 덮어씁니다.
+get(key): Map에서 키에 해당하는 값을 가져옵니다. 해당 키가 Map에 없을 경우 null을 반환합니다.
+remove(key): Map에서 키에 해당하는 값을 제거합니다. 해당 키가 없다면 아무런 작업도 수행하지 않습니다. (key, value 모두 제거)
+
+public class Main {
+    public static void main(String[] args) {
+        // HashMap 생성
+        Map<String, Integer> map = new HashMap<>();
+ 
+        // 키-값 쌍 추가
+        map.put(“Apple”, 5);
+        map.put(“Orange”, 10);
+        map.put(“Banana”, 15);
+ 
+        // 키를 사용하여 값 검색
+        System.out.println(“Apple의 값: “ + map.get(“Apple”));
+ 
+        // 키-값 쌍 업데이트, 동일한 키가 있을 경우 값을 덮어씁니다.
+        map.put(“Apple”, 7);
+        System.out.println(“Apple의 값(업데이트 후): “ + map.get(“Apple”));
+        
+        // Banana 키-값 제거
+        map.remove(“Banana”); 
+ 
+        System.out.println(map);
+    }
+}
+
+<Map 메소드>
+keySet 
+Map에 저장된 모든 키를 Set 형태로 반환하는 메서드입니다. 반환된 키 Set을 사용하여 모든 키를 반복 처리할 수 있습니다.
+
+value 
+Map에 저장된 모든 값을 Collection 형태로 반환하는 메서드입니다. 반환된 값들의 컬렉션을 사용하여 모든 값을 반복 처리할 수 있습니다.
+
+entrySet 
+Map에 저장된 모든 키-값 쌍을 Set 형태로 반환하는 메서드입니다. 반환된 키-값 쌍 Set을 사용하여 모든 항목을 반복 처리할 수 있습니다.
+
+containsKey (boolean형)
+Map에 특정 키가 있는지 확인하는 메서드입니다. 인수로 키 객체를 받아 해당하는 키가 있으면 true를 반환하고, 없으면 false를 반환합니다.
+
+containsValue (boolean형)
+Map에 특정 값이 있는지 확인하는 메서드입니다. 인수로 값 객체를 받아 해당하는 값이 있으면 true를 반환하고, 없으면 false를 반환합니다.
+
+
+public class Main {
+    public static void main(String[] args) {
+        Map<String, Integer> scores = new HashMap<>();
+ 
+        // 점수 추가
+        scores.put(“Alice”, 90);
+        scores.put(“Bob”, 80);
+        scores.put(“Charlie”, 85);
+        
+        // key, value 값 확인
+        System.out.println(“Alice라는 학생이 있나요?? “ + scores.containsKey(“Alice”));
+        System.out.println(“90점을 맞은 학생이 있나요?? “ + scores.containsValue(90));
+        
+        System.out.println();
+ 
+        // 모든 학생의 이름 출력, keySet
+        System.out.println(“All students:”);
+        for (String name : scores.keySet()) {
+            System.out.println(name);
+        }
+        
+        System.out.println();
+ 
+        // 모든 학생의 점수 출력, values
+        System.out.println(“All scores:”);
+        for (Integer score : scores.values()) {
+            System.out.println(score);
+        }
+        
+        System.out.println();
+ 
+        // 점수가 80인 학생 이름 출력, entrySet
+        System.out.println(“점수가 80인 학생 이름:”);
+        for (Map.Entry<String, Integer> entry : scores.entrySet()) {
+            if (entry.getValue() == 80) {
+                System.out.println(entry.getKey());
+            }
+        }
+    }
+}
+
+
+<결론>
+Java  Map은 키와 값의 쌍으로 데이터를 저장하고 관리하는데 유용한 자료구조입니다. 
+주요 메서드로는 put, get, remove 등의 기본 조작 메서드와 keySet, values, entrySet 등의 목록 탐색 메서드, 그리고 containsKey, containsValue 등의 검색 기능을 제공합니다. 
+
+자바 Map은 여러 가지 유용한 기능을 제공하지만, 아래와 같은 한계점과 개선 방향도 존재합니다.
+
+순서 보장하지 않음: 기본적인 HashMap은 키나 값의 순서를 보장하지 않습니다. 
+이를 해결하기 위해 LinkedHashMap이나 TreeMap 등의 다른 구현체를 사용할 수 있습니다.
+
+동시성 문제: 기본적인 HashMap은 여러 스레드에서 동시 접근 시 문제가 발생할 수 있습니다. 
+이를 해결하기 위해 동시성을 지원하는 ConcurrentHashMap을 사용할 수 있습니다.
+
+null을 허용하지 않음: 일부 Map 구현체에서는 키 또는 값에 null을 허용하지 않습니다. 
+키나 값에 null을 허용하는지 여부는 Map 구현체에 따라 다르므로 해당 클래스의 설명서를 참고해야 합니다.
 
 
 
-1. map.entrySet()
-public Set<Map.Entry<K,​V>> entrySet()
-map.entrySet() 메소드는
-해당 map의  key와 value를 가지는 Set 객체를 리턴합니다.
-출처: https://hianna.tistory.com/573 [어제 오늘 내일:티스토리]
+
