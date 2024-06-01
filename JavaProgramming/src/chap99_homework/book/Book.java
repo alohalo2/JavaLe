@@ -91,8 +91,9 @@ public class Book {
 		this.loanAvailability = loanAvailability;
 	}
 
-	// 도서 정보 저장 메소드
 	public static void saveBookInfo() {
+
+		// 도서 번호를 입력해서 해당하는 도서 정보를 입력하는 메소드
 
 		while (true) {
 			Book book = new Book();
@@ -104,20 +105,19 @@ public class Book {
 
 				System.out.println("도서 번호를 입력하세요.");
 				userInputbNum = sc.nextLine();
-				
+
 				for (int i = 0; i < bookList.size(); i++) {
 					if (bookList.get(i).getBookNum().equals(userInputbNum)) {
 						System.out.println("도서 번호가 중복되었습니다, 다시 입력하세요.");
 						userFoundBookNum = true;
 						saveBookInfo(); // 재귀메소드로 중복값이 있을때 다시 for문을 돌림
 						break; // for문 루프 탈출
-					} 
+					}
 				}
 				if (!userFoundBookNum) {
-			        book.setBookNum(userInputbNum);
-			        bookCnt++;
-					System.out.println(bookCnt);
-			    }
+					book.setBookNum(userInputbNum);
+
+				}
 				break; // while 루프 탈출
 			}
 
@@ -137,36 +137,41 @@ public class Book {
 				book.setLoanAvailability(true);
 				Thread.sleep(1000);
 
+				System.out.println("입력한 도서 번호: " + userInputbNum);
+				System.out.println("입력한 도서 제목: " + book.getBookName());
+				System.out.println("입력한 지은이: " + book.getAuthor());
+				System.out.println("입력한 출판사: " + book.getPublisher());
+				System.out.println("입력한 장르: " + book.getGenre());
+				System.out.println("===================================");
+				System.out.println("입력한 정보가 맞으면 Y, 다르면 N을 입력해주세요.");
+				userConfirm = sc.nextLine();
+				Thread.sleep(1000);
+
+				if (userConfirm.equalsIgnoreCase("y")) {
+					bookList.add(book);
+					bookListMap.put(book.getBookNum(), bookList);
+					System.out.println("도서정보 입력 완료");
+					Thread.sleep(1000);
+					break;
+				} else if (userConfirm.equalsIgnoreCase("n")) {
+					System.out.println("입력한 도서 정보가 잘못 작성되었습니다, 다시 작성해주세요.");
+					Thread.sleep(1000);
+					break;
+				} else {
+					System.out.println("잘못 입력했습니다, 초기메뉴로 돌아갑니다.");
+					Thread.sleep(1000);
+					break;
+				}
 			} catch (InterruptedException e) {
 				e.printStackTrace();
-			}
-
-			System.out.println("입력한 도서 번호: " + userInputbNum);
-			System.out.println("입력한 도서 제목: " + book.getBookName());
-			System.out.println("입력한 지은이: " + book.getAuthor());
-			System.out.println("입력한 출판사: " + book.getPublisher());
-			System.out.println("입력한 장르: " + book.getGenre());
-			System.out.println("===================================");
-			System.out.println("입력한 정보가 맞으면 Y, 다르면 N을 입력해주세요.");
-			userConfirm = sc.nextLine();
-
-			if (userConfirm.equalsIgnoreCase("y")) {
-				bookList.add(book);
-				bookListMap.put(book.getBookNum(), bookList);
-				System.out.println("도서정보 입력 완료");
-				break;
-			} else if (userConfirm.equalsIgnoreCase("n")) {
-				System.out.println("입력한 도서 정보가 잘못 작성되었습니다, 다시 작성해주세요.");
-				break;
-			} else {
-				System.out.println("잘못 입력했습니다, 초기메뉴로 돌아갑니다.");
-				break;
 			}
 
 		}
 	}
 
 	public static void allSavedBookInfo() {
+
+		// 현재까지 저장된 도서 정보들을 모두 출력하는 메소드
 
 		try {
 			for (int i = 0; i < bookList.size(); i++) {
@@ -185,6 +190,8 @@ public class Book {
 
 	public static void findBookInfo() {
 
+		// 찾을 도서번호를 입력하면 List에서 도서번호에 맞는 도서정보를 출력해주는 메소드
+
 		String findBookUserStr;
 
 		System.out.println("찾을 도서의 번호를 입력해주세요.");
@@ -192,91 +199,108 @@ public class Book {
 		boolean bookFound = false;
 
 		while (true) {
-		    try {
-		        for (int i = 0; i < bookList.size(); i++) {
-		            if (bookList.get(i).getBookNum().equals(findBookUserStr)) {
-		                System.out.println("=============================");
-		                System.out.println("도서 번호: " + bookList.get(i).getBookNum());
-		                System.out.println("도서 제목: " + bookList.get(i).getBookName());
-		                System.out.println("지은이: " + bookList.get(i).getAuthor());
-		                System.out.println("출판사: " + bookList.get(i).getPublisher());
-		                System.out.println("장르: " + bookList.get(i).getGenre());
-		                System.out.println("=============================");
-		                Thread.sleep(1000);
-		                findBookInfo();
-		                bookFound = true;  // 도서를 찾았음을 표시
-		                break;  // for 루프 탈출
-		            }
-		        }
-		        if (!bookFound) {
-		            System.out.println("도서 번호를 잘못 입력했습니다, 초기메뉴로 돌아갑니다.");
-		        }
-		        break;  // while 루프 탈출
-		    } catch (InterruptedException e) {
-		        e.printStackTrace();
-		    } catch (IndexOutOfBoundsException i) {
-		        System.out.println(i.getMessage());
-		    }
+			try {
+				for (int i = 0; i < bookList.size(); i++) {
+					if (bookList.get(i).getBookNum().equals(findBookUserStr)) {
+						System.out.println("=============================");
+						System.out.println("도서 번호: " + bookList.get(i).getBookNum());
+						System.out.println("도서 제목: " + bookList.get(i).getBookName());
+						System.out.println("지은이: " + bookList.get(i).getAuthor());
+						System.out.println("출판사: " + bookList.get(i).getPublisher());
+						System.out.println("장르: " + bookList.get(i).getGenre());
+						System.out.println("=============================");
+						Thread.sleep(1000);
+						findBookInfo();
+						bookFound = true; // 도서를 찾았음을 표시
+						break; // for 루프 탈출
+					}
+				}
+				if (!bookFound) {
+					System.out.println("도서 번호를 잘못 입력했습니다, 초기메뉴로 돌아갑니다.");
+					Thread.sleep(1000);
+				}
+				break; // while 루프 탈출
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			} catch (IndexOutOfBoundsException i) {
+				System.out.println(i.getMessage());
+			}
 		}
 	}
 
 	public static void loanBookAvailability() {
 
-		// 맵으로 BookNum이랑 bookList 값을 받아서 저장
-		// BookNum 비교해서 도서 대출해주고
-		// 대출시랑 반납시에 BookNum 비교해서 내용을 다시 저장하는 방식으로 코드 작성 필요
-		
-		Book book = new Book();
-		
+		// 맵으로 BookNum(key)이랑 bookList(value) 값을 받아서 저장
+		// BookNum(key)이랑 비교해서 도서 대출 및 반납해주는 메소드
+
 		String userLoanBookNum = null;
 		String userReturnBookNum = null;
 		boolean loanBookFound = false;
 		boolean returnBookFound = false;
-		Set<String> mapKey = bookListMap.keySet();    
-		Set<Entry<String, List<Book>>> entry = bookListMap.entrySet();
-		
+
 		System.out.println("도서를 대출 및 반납 중 선택해주세요, 도서 대출: y / 도서 반납: n");
 		String userSelec = sc.nextLine();
 
-		
-		Iterator<String> keys = bookListMap.keySet().iterator();
-		
-        while (keys.hasNext()){
-            String key = keys.next();
-            
-			if (userSelec.equalsIgnoreCase("y")) {
-				System.out.println("도서대출 할 도서의 번호를 입력해주세요.");
-				userLoanBookNum = sc.nextLine();
-	
-				for (int i = 0; i < bookListMap.size(); i++) {
-					if (userLoanBookNum.equals(entry)) {
-						System.out.println("도서 대출 완료");
-						loanBookFound = true; // 도서 대출할 책을 찾았음을 표시
-						bookCnt--;
-						System.out.println(bookCnt);
-						break; // for 루프 탈출
-					} 
-				}
-				if(!loanBookFound) {
-					System.out.println("찾으시는 책이 없어 도서대출이 불가능 합니다.");
-				}
-			} else {
-				System.out.println("반납할 도서의 번호를 입력해주세요.");
-				userReturnBookNum = sc.nextLine();
-				
-				for (int i = 0; i < bookList.size(); i++) {
-					if (bookList.get(i).getBookNum().equals(userLoanBookNum)) {
-						System.out.println("도서 반납 완료");
-						returnBookFound = true; // 도서 반납할 책을 찾았음을 표시
-						bookCnt++;
-						break; // for 루프 탈출
-						
+		while (true) {
+			try {
+				if (userSelec.equalsIgnoreCase("y")) {
+					System.out.println("도서대출 할 도서의 번호를 입력해주세요.");
+					userLoanBookNum = sc.nextLine();
+					Thread.sleep(1000);
+
+					for (int i = 0; i < bookListMap.size(); i++) {
+						if (bookListMap.containsKey(userLoanBookNum)) {
+							System.out.println("대출할 도서 번호: " + userLoanBookNum);
+							System.out.println("대출할 도서 제목: " + bookList.get(i).getBookName());
+							System.out.println("대출할 도서 지은이: " + bookList.get(i).getAuthor());
+							System.out.println("대출할 도서 출판사: " + bookList.get(i).getPublisher());
+							System.out.println("대출할 도서 장르: " + bookList.get(i).getGenre());
+							System.out.println("===================================");
+							Thread.sleep(1000);
+
+							System.out.println("도서 대출 완료");
+							loanBookFound = true; // 도서 대출할 책을 찾았음을 표시
+							Thread.sleep(1000);
+							break; // for 루프 탈출
+						}
+					}
+					if (!loanBookFound) {
+						System.out.println("찾으시는 책이 없어 도서대출이 불가능 합니다.");
+						Thread.sleep(1000);
+					}
+				} else {
+					System.out.println("반납할 도서의 번호를 입력해주세요.");
+					userReturnBookNum = sc.nextLine();
+					Thread.sleep(1000);
+
+					for (int i = 0; i < bookListMap.size(); i++) {
+						if (bookListMap.containsKey(userReturnBookNum)) {
+							System.out.println("반납할 도서 번호: " + userReturnBookNum);
+							System.out.println("반납할 도서 제목: " + bookList.get(i).getBookName());
+							System.out.println("반납할 도서 지은이: " + bookList.get(i).getAuthor());
+							System.out.println("반납할 도서 출판사: " + bookList.get(i).getPublisher());
+							System.out.println("반납할 도서 장르: " + bookList.get(i).getGenre());
+							System.out.println("===================================");
+							Thread.sleep(1000);
+
+							System.out.println("도서 반납 완료");
+							returnBookFound = true; // 도서 반납할 책을 찾았음을 표시
+							Thread.sleep(1000);
+							break; // for 루프 탈출
+
+						}
+					}
+					if (!returnBookFound) {
+						System.out.println("해당 반납 도서는 저장된 도서 내용과 일치하지 않습니다.");
+						Thread.sleep(1000);
 					}
 				}
-				if(!returnBookFound) {
-					System.out.println("해당 반납 도서는 저장된 도서 내용과 일치하지 않습니다.");
-				}
+				break; // while 루프 탈출
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			} catch (IndexOutOfBoundsException i) {
+				System.out.println(i.getMessage());
 			}
-        }
+		}
 	}
 }
