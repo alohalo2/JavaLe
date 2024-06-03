@@ -10,7 +10,16 @@ public class Main {
 
 		int N = sc.nextInt();
 
-
-
+		for (int i = 0; i < N; i++) {
+			for (int j = N - 1; j >= 0; j--) {
+				if (i <= j) {
+					System.out.print("*");
+				}
+			}
+			System.out.println();
+		}
 	}
 }
+
+
+
