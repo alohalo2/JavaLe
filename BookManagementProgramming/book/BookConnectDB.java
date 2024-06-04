@@ -5,12 +5,18 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Scanner;
 
 public class BookConnectDB {
 
-	public static void main(String[] args) {
+//	public static void main(String[] args) {
+		
+	public static void bookConnectDB () { // 저장에 필요한 값들 파라미터로 받아야함
 		
 		Book book = new Book();
+		
+//		Scanner sc = new Scanner(System.in);
 		
 		Connection conn = null;
 		PreparedStatement psmtUsers = null;
@@ -36,13 +42,38 @@ public class BookConnectDB {
 			cnt = psmtUsers.executeUpdate();
 	
 			String sqlBooks = "INSERT INTO BOOKS (BNO, BTITLE, AUTHOR, PUBLISHER, GENRE) VALUES (?, ?, ?, ?, ?)";
+	
 	        psmtBooks = conn.prepareStatement(sqlBooks);
+	        
+//	        System.out.println("도서 번호를 입력하세요.");
+//	        book.setBookNum(sc.nextLine());
 	        psmtBooks.setString(1, book.getBookNum());
+	        
+//	        System.out.println("도서 제목: ");
+//	        book.setBookName(sc.nextLine());
 	        psmtBooks.setString(2, book.getBookName());
+	        
+//	        System.out.println("지은이: ");
+//	        book.setAuthor(sc.nextLine());
 	        psmtBooks.setString(3, book.getAuthor());
+	        
+//	        System.out.println("출판사: ");
+//	        book.setPublisher(sc.nextLine());
 	        psmtBooks.setString(4, book.getPublisher());
+	        
+//	        System.out.println("장르: ");
+//	        book.setGenre(sc.nextLine());
 	        psmtBooks.setString(5, book.getGenre());
+	        
 	        psmtBooks.executeUpdate();
+	        
+//	        String select = "";
+	        
+//	        rs = psmtBooks.executeQuery(select);
+	        
+//	        while(rs.next()) {
+//	        	List<Book> bookList = new ArrayList<>();
+// 	        }
 			
 		}catch(ClassNotFoundException e){
 			System.out.println("JDBC 드라이버를 찾을 수 없습니다: " + e.getMessage());
@@ -67,9 +98,9 @@ public class BookConnectDB {
 			}
 		}
 		if(cnt>0){
-			System.out.println("회원가입 성공");
+			System.out.println("연결 성공");
 		}else{
-			System.out.println("회원가입 성공");
+			System.out.println("연결 실패");
 		}
 	}
 }
