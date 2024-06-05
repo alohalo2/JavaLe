@@ -82,10 +82,4 @@ public class Book {
 	public void setLoanAvailability(boolean b) {
 	}
 
-//	public boolean isLoanAvailability() {
-//		return loanAvailability;
-//	}
-//
-
-
 }

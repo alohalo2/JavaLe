@@ -13,7 +13,6 @@ public class BookManagement {
 	boolean loanAvailability;
 	static List<Book> bookList = new ArrayList<Book>();
 	static Map<String, List<Book>> bookListMap = new HashMap<>();
-	
 	static Book book = new Book(null, null, null, null, null);
 	
 	public static void main(String[] args) {
@@ -34,14 +33,12 @@ public class BookManagement {
 			case "1":
 
 				saveBookInfo();
-				BookConnectDB.bookConnectDB(); // 객체 생성 없이 static으로 만들어서 클래스 자체를 사용
-				// 도서 정보를 저장하는 것들을 db에 바로 저장하려면 list에 담기는 내용들을 
-				// 전부 db로 가게 함수 만들어서 사용 필요
 
 				break;
 			case "2":
 
-				allSavedBookInfo();
+//				allSavedBookInfo();
+				BookConnectDB.printAllBookInfoFromDB(book);
 
 				break;
 			case "3":
@@ -72,7 +69,6 @@ public class BookManagement {
 		// 도서 번호를 입력해서 해당하는 도서 정보를 입력하는 메소드
 
 		while (true) {
-			Book book = new Book();
 			String userInputbNum; // 사용자가 입력한 도서 번호를 저장하는 변수
 			String userConfirm; // 사용자가 입력한 내용을 컨펌하는 변수
 			boolean userFoundBookNum = false;
@@ -127,6 +123,7 @@ public class BookManagement {
 					bookList.add(book);
 					bookListMap.put(book.getBookNum(), bookList);
 					System.out.println("도서정보 입력 완료");
+					BookConnectDB.bookSaveIntoDB(book); // 수정된 부분: Book 객체를 전달
 					Thread.sleep(1000);
 					break;
 				} else if (userConfirm.equalsIgnoreCase("n")) {
@@ -149,19 +146,21 @@ public class BookManagement {
 
 		// 현재까지 저장된 도서 정보들을 모두 출력하는 메소드
 
-		try {
-			for (int i = 0; i < bookList.size(); i++) {
-				System.out.println("=============================");
-				System.out.println("도서 번호: " + bookList.get(i).getBookNum());
-				System.out.println("도서 제목: " + bookList.get(i).getBookName());
-				System.out.println("지은이: " + bookList.get(i).getAuthor());
-				System.out.println("출판사: " + bookList.get(i).getPublisher());
-				System.out.println("장르: " + bookList.get(i).getGenre());
-				Thread.sleep(1000);
-			}
-		} catch (InterruptedException e) {
-			System.out.println(e.getMessage());
-		}
+		BookConnectDB.printAllBookInfoFromDB(book);
+		
+//		try {
+//			for (int i = 0; i < bookList.size(); i++) {
+//				System.out.println("=============================");
+//				System.out.println("도서 번호: " + bookList.get(i).getBookNum());
+//				System.out.println("도서 제목: " + bookList.get(i).getBookName());
+//				System.out.println("지은이: " + bookList.get(i).getAuthor());
+//				System.out.println("출판사: " + bookList.get(i).getPublisher());
+//				System.out.println("장르: " + bookList.get(i).getGenre());
+//				Thread.sleep(1000);
+//			}
+//		} catch (InterruptedException e) {
+//			System.out.println(e.getMessage());
+//		}
 	}
 
 	public static void findBookInfo() {
@@ -172,6 +171,7 @@ public class BookManagement {
 
 		System.out.println("찾을 도서의 번호를 입력해주세요.");
 		findBookUserStr = sc.nextLine();
+		BookConnectDB.printFindBookInfoFromDB(book, findBookUserStr);
 		boolean bookFound = false;
 
 		while (true) {

@@ -2,3 +2,5 @@
 /BookManagement.class
 /ConnectDB.class
 /BookConnectDB.class
+/Snippet.class
+/JDBCUtil.class

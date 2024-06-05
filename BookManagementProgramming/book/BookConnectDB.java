@@ -5,19 +5,12 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.Scanner;
+import java.sql.Statement;
 
 public class BookConnectDB {
+	
+	public static void bookSaveIntoDB (Book book) { // 저장에 필요한 값들 파라미터로 받아야함
 
-//	public static void main(String[] args) {
-		
-	public static void bookConnectDB () { // 저장에 필요한 값들 파라미터로 받아야함
-		
-		Book book = new Book();
-		
-//		Scanner sc = new Scanner(System.in);
-		
 		Connection conn = null;
 		PreparedStatement psmtUsers = null;
 		PreparedStatement psmtBooks = null;
@@ -44,36 +37,14 @@ public class BookConnectDB {
 			String sqlBooks = "INSERT INTO BOOKS (BNO, BTITLE, AUTHOR, PUBLISHER, GENRE) VALUES (?, ?, ?, ?, ?)";
 	
 	        psmtBooks = conn.prepareStatement(sqlBooks);
-	        
-//	        System.out.println("도서 번호를 입력하세요.");
-//	        book.setBookNum(sc.nextLine());
+
 	        psmtBooks.setString(1, book.getBookNum());
-	        
-//	        System.out.println("도서 제목: ");
-//	        book.setBookName(sc.nextLine());
 	        psmtBooks.setString(2, book.getBookName());
-	        
-//	        System.out.println("지은이: ");
-//	        book.setAuthor(sc.nextLine());
 	        psmtBooks.setString(3, book.getAuthor());
-	        
-//	        System.out.println("출판사: ");
-//	        book.setPublisher(sc.nextLine());
 	        psmtBooks.setString(4, book.getPublisher());
-	        
-//	        System.out.println("장르: ");
-//	        book.setGenre(sc.nextLine());
 	        psmtBooks.setString(5, book.getGenre());
 	        
 	        psmtBooks.executeUpdate();
-	        
-//	        String select = "";
-	        
-//	        rs = psmtBooks.executeQuery(select);
-	        
-//	        while(rs.next()) {
-//	        	List<Book> bookList = new ArrayList<>();
-// 	        }
 			
 		}catch(ClassNotFoundException e){
 			System.out.println("JDBC 드라이버를 찾을 수 없습니다: " + e.getMessage());
@@ -98,9 +69,121 @@ public class BookConnectDB {
 			}
 		}
 		if(cnt>0){
-			System.out.println("연결 성공");
+			System.out.println("DB에 저장 완료");
 		}else{
-			System.out.println("연결 실패");
+			System.out.println("DB에 저장 실패");
 		}
 	}
+	
+	public static void printAllBookInfoFromDB (Book book) {
+		
+		Connection conn = null; // DB와 연결
+		Statement stmt = null; // 실행문을 저장
+		ResultSet rs = null; // 결과값을 저장
+		
+		try {
+			// Connection 객체 얻기
+			conn = JDBCUtil.getConnection
+					("jdbc:oracle:thin:@localhost:1521:xe","c##study", "!dkdlxl1234");
+			
+			// Statement 객체 얻기
+			stmt = conn.createStatement();
+			
+			// 쿼리문 작성
+			String selectAvgRes = "SELECT BNO"
+					+ " 				, BTITLE"
+					+ "					, AUTHOR"
+					+ "					, PUBLISHER"
+					+ "					, GENRE"
+					+ "					FROM BOOKS"
+					+ "					ORDER BY BNO";
+			
+			// 쿼리문 실행
+			// 실행 결과를 ResultSet 객체로 받음
+			rs = stmt.executeQuery(selectAvgRes);
+			
+			// 쿼리 실행 결과 출력 (대소문자 구분없이 사용가능)
+			while(rs.next()) {
+				String bno = rs.getString("bno");
+				String btitle = rs.getString("btitle");
+				String author = rs.getString("author");
+				String publisher = rs.getString("publisher");
+				String genre = rs.getString("genre");
+				
+				System.out.println("=================================");
+				System.out.println("도서 번호: " + bno);
+				System.out.println("도서 제목: " + btitle);
+				System.out.println("지은이: " + author);
+				System.out.println("출판사: " + publisher);
+				System.out.println("장르: " + genre);
+				Thread.sleep(1000);
+			}
+			
+		} catch (SQLException se) {
+			System.out.println(se.getMessage());
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		} finally {
+			JDBCUtil.close(stmt, rs, conn);
+		}
+	
+	}
+	
+	public static void printFindBookInfoFromDB(Book book, String findBookUserStr) {
+		
+		Connection conn = null; // DB와 연결
+		Statement stmt = null; // 실행문을 저장
+		ResultSet rs = null; // 결과값을 저장
+		
+		try {
+			// Connection 객체 얻기
+			conn = JDBCUtil.getConnection
+					("jdbc:oracle:thin:@localhost:1521:xe","c##study", "!dkdlxl1234");
+			
+			// 쿼리문 작성
+			String findBookInfoFromDB = "SELECT BNO"
+					+ " 				, BTITLE"
+					+ "					, AUTHOR"
+					+ "					, PUBLISHER"
+					+ "					, GENRE"
+					+ "					FROM BOOKS"
+					+ "					WHERE BNO = ?";
+			
+			stmt = conn.prepareStatement(findBookInfoFromDB);
+			
+			((PreparedStatement) stmt).setString(1, findBookUserStr);
+			
+			// 쿼리문 실행
+			// 실행 결과를 ResultSet 객체로 받음
+			rs = stmt.executeQuery(findBookInfoFromDB);
+	
+			// 쿼리 실행 결과 출력 (대소문자 구분없이 사용가능)
+			while(rs.next()) {
+				String bno = rs.getString("bno");
+				String btitle = rs.getString("btitle");
+				String author = rs.getString("author");
+				String publisher = rs.getString("publisher");
+				String genre = rs.getString("genre");
+				
+				System.out.println("=================================");
+				System.out.println("도서 번호: " + bno);
+				System.out.println("도서 제목: " + btitle);
+				System.out.println("지은이: " + author);
+				System.out.println("출판사: " + publisher);
+				System.out.println("장르: " + genre);
+				Thread.sleep(1000);
+			}
+			
+		} catch (SQLException se) {
+			System.out.println(se.getMessage());
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		} finally {
+			JDBCUtil.close(stmt, rs, conn);
+		}
+	
+		
+	}
+	
+	
 }
