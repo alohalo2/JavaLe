@@ -6,7 +6,7 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="lib" path="C:/Users/kid16/Downloads/ojdbc11.jar">
+	<classpathentry kind="lib" path="C:/Users/wntjd/OneDrive/바탕 화면/workspace/ojdbc11.jar">
 		<attributes>
 			<attribute name="module" value="true"/>
 		</attributes>
