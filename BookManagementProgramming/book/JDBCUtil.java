@@ -2,6 +2,7 @@ package book;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -38,11 +39,17 @@ public class JDBCUtil {
 		
 	}
 	
-	// ResultSet이 있는 close 메소드(select)
-	public static void close(Statement stmt, ResultSet rs, Connection conn) {
+	public static void close(Statement stmt, Connection conn, ResultSet rs) {
 		if(stmt != null) {
 			try {
 				stmt.close();
+			} catch (SQLException se) {
+				System.out.println(se.getMessage());
+			}
+		}
+		if(conn != null) {
+			try {
+				conn.close();
 			} catch (SQLException se) {
 				System.out.println(se.getMessage());
 			}
@@ -54,9 +61,67 @@ public class JDBCUtil {
 				System.out.println(se.getMessage());
 			}
 		}
+		
+	}
+	
+
+	// ResultSet이 있는 close 메소드(select)
+	public static void close(Connection conn, PreparedStatement pstmt, ResultSet rs) {
 		if(conn != null) {
 			try {
 				conn.close();
+			} catch (SQLException se) {
+				System.out.println(se.getMessage());
+			}
+		}
+		if(pstmt != null) {
+			try {
+				pstmt.close();
+			} catch (SQLException se) {
+				System.out.println(se.getMessage());
+			}
+		}
+		if(rs != null) {
+			try {
+				rs.close();
+			} catch (SQLException se) {
+				System.out.println(se.getMessage());
+			}
+		}
+	}
+	// ResultSet이 있는 close 메소드(select)
+	public static void close(Connection conn, PreparedStatement pstmt, Statement stmt, ResultSet rs1, ResultSet rs2) {
+		if(conn != null) {
+			try {
+				conn.close();
+			} catch (SQLException se) {
+				System.out.println(se.getMessage());
+			}
+		}
+		if(pstmt != null) {
+			try {
+				pstmt.close();
+			} catch (SQLException se) {
+				System.out.println(se.getMessage());
+			}
+		}
+		if(stmt != null) {
+			try {
+				stmt.close();
+			} catch (SQLException se) {
+				System.out.println(se.getMessage());
+			}
+		}
+		if(rs1 != null) {
+			try {
+				rs1.close();
+			} catch (SQLException se) {
+				System.out.println(se.getMessage());
+			}
+		}
+		if(rs2 != null) {
+			try {
+				rs2.close();
 			} catch (SQLException se) {
 				System.out.println(se.getMessage());
 			}
