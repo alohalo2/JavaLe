@@ -38,6 +38,51 @@ public class JDBCUtil {
 		}
 		
 	}
+	public static void close(Connection conn, Statement stmt, PreparedStatement pstmt, ResultSet rs1, ResultSet rs2, ResultSet rs3) {
+		if(conn != null) {
+			try {
+				conn.close();
+			} catch (SQLException se) {
+				System.out.println(se.getMessage());
+			}
+		}
+		if(stmt != null) {
+			try {
+				stmt.close();
+			} catch (SQLException se) {
+				System.out.println(se.getMessage());
+			}
+		}
+		if(pstmt != null) {
+			try {
+				pstmt.close();
+			} catch (SQLException se) {
+				System.out.println(se.getMessage());
+			}
+		}
+		if(rs1 != null) {
+			try {
+				rs1.close();
+			} catch (SQLException se) {
+				System.out.println(se.getMessage());
+			}
+		}
+		if(rs2 != null) {
+			try {
+				rs2.close();
+			} catch (SQLException se) {
+				System.out.println(se.getMessage());
+			}
+		}
+		if(rs3 != null) {
+			try {
+				rs3.close();
+			} catch (SQLException se) {
+				System.out.println(se.getMessage());
+			}
+		}
+		
+	}
 	
 	public static void close(Statement stmt, Connection conn, ResultSet rs) {
 		if(stmt != null) {
@@ -57,6 +102,38 @@ public class JDBCUtil {
 		if(rs != null) {
 			try {
 				rs.close();
+			} catch (SQLException se) {
+				System.out.println(se.getMessage());
+			}
+		}
+		
+	}
+	
+	public static void close(Connection conn, PreparedStatement pstmt, ResultSet rs1, ResultSet rs2) {
+		if(conn != null) {
+			try {
+				conn.close();
+			} catch (SQLException se) {
+				System.out.println(se.getMessage());
+			}
+		}
+		if(pstmt != null) {
+			try {
+				pstmt.close();
+			} catch (SQLException se) {
+				System.out.println(se.getMessage());
+			}
+		}
+		if(rs1 != null) {
+			try {
+				rs1.close();
+			} catch (SQLException se) {
+				System.out.println(se.getMessage());
+			}
+		}
+		if(rs2 != null) {
+			try {
+				rs2.close();
 			} catch (SQLException se) {
 				System.out.println(se.getMessage());
 			}
@@ -90,7 +167,9 @@ public class JDBCUtil {
 		}
 	}
 	// ResultSet이 있는 close 메소드(select)
-	public static void close(Connection conn, PreparedStatement pstmt, Statement stmt, ResultSet rs1, ResultSet rs2) {
+	public static void close(Connection conn, PreparedStatement pstmt, 
+			Statement stmt, ResultSet rs1, ResultSet rs2, ResultSet rs3,
+			ResultSet rs4) {
 		if(conn != null) {
 			try {
 				conn.close();
@@ -122,6 +201,20 @@ public class JDBCUtil {
 		if(rs2 != null) {
 			try {
 				rs2.close();
+			} catch (SQLException se) {
+				System.out.println(se.getMessage());
+			}
+		}
+		if(rs3 != null) {
+			try {
+				rs3.close();
+			} catch (SQLException se) {
+				System.out.println(se.getMessage());
+			}
+		}
+		if(rs4 != null) {
+			try {
+				rs4.close();
 			} catch (SQLException se) {
 				System.out.println(se.getMessage());
 			}
