@@ -1,32 +1,43 @@
 package chap99_homework;
 
-import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.util.Arrays;
+import java.util.StringTokenizer;
 
 public class Main {
 
 	public static void main(String[] args) {
 
-		Scanner sc = new Scanner(System.in);
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 
-		int N = sc.nextInt(); // 정수의 갯수
+		try {
 
-		int[] nArry = new int[N]; // 정수를 담는 배열
+			int N = Integer.parseInt(br.readLine());
+			int[] Narr = new int[N];
 
-		for (int i = 0; i < nArry.length; i++) {
-			nArry[i] = sc.nextInt();
-		}
+			StringTokenizer st = new StringTokenizer(br.readLine(), " ");
 
-		int v = sc.nextInt(); // 찾으려고 하는 정수
-		int vCnt = 0;
+			int idx = 0;
 
-		for (int i = 0; i < nArry.length; i++) {
-			if (nArry[i] == v) {
-				vCnt++;
+			while (st.hasMoreTokens()) {
+				Narr[idx++] = Integer.parseInt(st.nextToken());
 			}
+
+			Arrays.sort(Narr);
+			bw.write(Narr[0] + " " + Narr[N - 1]);
+
+			bw.flush();
+			bw.close();
+
+		} catch (NumberFormatException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
 		}
-
-		System.out.println(vCnt);
-
-		sc.close();
 	}
 }

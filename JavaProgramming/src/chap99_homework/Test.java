@@ -35,26 +35,31 @@ public class Test {
 //		isList2.add("ccc");
 //		isList2.add("ddd");
 		
-		Map<Integer, String> map = new HashMap<Integer, String>();
+//		Map<Integer, String> map = new HashMap<Integer, String>();
+//		
+//		String bookTitle;
+//		int bookCnt = 0;
+//		
+//		while(true) {
+//			
+//			for(int i = 0; i < 4; i++) {
+//				System.out.println("책 제목을 입력해주세요.");
+//				bookTitle = sc.nextLine();
+//				bookCnt++;
+//				
+//				map.put(bookCnt, bookTitle);
+//			}
+//			
+//			 Set<Integer> keySet = map.keySet();       
+//			 for (Integer key : keySet) {            
+//				 System.out.println(key + " : " + map.get(key)); 
+//			 }
+//			 break; // while 루프 탈출
+//		}
 		
-		String bookTitle;
-		int bookCnt = 0;
+		int age = 32;
 		
-		while(true) {
-			
-			for(int i = 0; i < 4; i++) {
-				System.out.println("책 제목을 입력해주세요.");
-				bookTitle = sc.nextLine();
-				bookCnt++;
-				
-				map.put(bookCnt, bookTitle);
-			}
-			
-			 Set<Integer> keySet = map.keySet();       
-			 for (Integer key : keySet) {            
-				 System.out.println(key + " : " + map.get(key)); 
-			 }
-			 break; // while 루프 탈출
-		}
+		System.out.printf("내 나이는 %d살 입니다.", age);
+		
 	}
 }
