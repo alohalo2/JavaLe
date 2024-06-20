@@ -5,8 +5,6 @@ import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
-import java.util.Arrays;
-import java.util.StringTokenizer;
 
 public class Main {
 
@@ -17,19 +15,25 @@ public class Main {
 
 		try {
 
-			int N = Integer.parseInt(br.readLine());
-			int[] Narr = new int[N];
-
-			StringTokenizer st = new StringTokenizer(br.readLine(), " ");
-
+			int[] Narr = new int[9];
 			int idx = 0;
 
-			while (st.hasMoreTokens()) {
-				Narr[idx++] = Integer.parseInt(st.nextToken());
+			while (idx < 9) {
+
+				Narr[idx++] = Integer.parseInt(br.readLine());
 			}
 
-			Arrays.sort(Narr);
-			bw.write(Narr[0] + " " + Narr[N - 1]);
+			int max = 0;
+			int maxCnt = 0;
+			for (int i = 0; i < Narr.length; i++) {
+				if (max < Narr[i]) {
+					max = Narr[i];
+					maxCnt = i + 1;
+				}
+			}
+
+			bw.write(max + "\n");
+			bw.write(maxCnt + "\n");
 
 			bw.flush();
 			bw.close();

@@ -1,9 +1,11 @@
 package chap99_homework;
 
+import java.awt.datatransfer.SystemFlavorMap;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 import java.util.Set;
+import java.util.StringTokenizer;
 
 public class Test {
 
@@ -57,9 +59,20 @@ public class Test {
 //			 break; // while 루프 탈출
 //		}
 		
-		int age = 32;
+		String str = "네이버> 네이버 주소: https://www.naver.com";
+//		StringTokenizer st = new StringTokenizer(str, ">: ");
+//		
+//		while(st.hasMoreTokens()) {
+//			System.out.println(st.nextToken());
+//		}
+	
+		for(int i = 0; i < str.length(); i++) {
+			
+			String[] str1 = str.split(":");
+			System.out.println(str1);
+		}
 		
-		System.out.printf("내 나이는 %d살 입니다.", age);
 		
+				
 	}
 }
