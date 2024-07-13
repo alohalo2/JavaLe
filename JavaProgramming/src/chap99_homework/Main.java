@@ -21,7 +21,7 @@ public class Main {
 		for (int i = 0; i < M; i++) {
 
 			int I = sc.nextInt();
-			int J = sc.nextInt();
+			int J = sc.nextInt();   
 
 			intArr[I - 1] = J;
 			intArr[J - 1] = I;
