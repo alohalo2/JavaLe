@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Main {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) {     
 
 		Scanner sc = new Scanner(System.in);
 
@@ -13,7 +13,7 @@ public class Main {
 		int[] intArr = new int[N];
 
 		for (int i = 0; i < N; i++) {
-			intArr[i] = i+1;
+			intArr[i] = i+1;    
 		}
 		for (int i = 0; i < N; i++)
 		System.out.print(intArr[i] + " ");
