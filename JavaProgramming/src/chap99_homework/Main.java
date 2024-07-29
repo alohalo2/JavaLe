@@ -7,7 +7,10 @@ public class Main {
 	public static void main(String[] args) {     
 
 		Scanner sc = new Scanner(System.in);
+<<<<<<< HEAD
   
+=======
+>>>>>>> 59ac308750a30e5a0433b7635765fe3676db42bb
 		
 		int N = sc.nextInt();
 		int M = sc.nextInt();
