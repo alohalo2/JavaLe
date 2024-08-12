@@ -8,11 +8,18 @@ public class Main {
 	public static void main(String[] args) {     
 
 		Scanner sc = new Scanner(System.in);
+<<<<<<< HEAD
 
 		int[] noSubmitArr = new int[30];
 		int[] submitArr = new int[28];
 		int[] resultArr = new int[2];
 		int index = 0;
+=======
+		
+		int N = sc.nextInt();
+		int M = sc.nextInt();
+		int[] intArr = new int[N];
+>>>>>>> a4c2fc0f2220041c32f0dbca38424d0b5c3f8fad
 
 			
 		for (int i = 0; i < 30; i++) {
