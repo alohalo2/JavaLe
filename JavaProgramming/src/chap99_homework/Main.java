@@ -10,12 +10,15 @@ public class Main {
 
 		int N = sc.nextInt();
 		sc.nextLine();
-		String str = sc.nextLine();
+
+		StringBuffer sb = new StringBuffer(sc.nextLine());
+		
 		int sum = 0;
 		
+		System.out.println(sb);
 		for(int i = 0; i < N; i++) {
-			int element = Integer.parseInt(str.substring(i,i+1));
-			sum += element;
+			System.out.println(sb.charAt(i));
+			sum += sb.charAt(i) - '0';
 		}
 		
 		System.out.println(sum);
