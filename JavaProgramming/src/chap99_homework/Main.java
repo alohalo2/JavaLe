@@ -8,6 +8,10 @@ public class Main {
 
 		Scanner sc = new Scanner(System.in);
 		
+		
+		
+		
+		
 		int N = sc.nextInt();
 		sc.nextLine();
 
