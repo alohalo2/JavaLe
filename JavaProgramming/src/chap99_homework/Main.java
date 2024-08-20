@@ -1,5 +1,6 @@
 package chap99_homework;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
@@ -10,18 +11,17 @@ public class Main {
 
 		int N = sc.nextInt();
 		sc.nextLine();
-
-		StringBuffer sb = new StringBuffer(sc.nextLine());
+		int[] intArr = new int[N];
 		
-		int sum = 0;
-		
-		System.out.println(sb);
-		for(int i = 0; i < N; i++) {
-			System.out.println(sb.charAt(i));
-			sum += sb.charAt(i) - '0';
+		for(int i = 0; i < intArr.length; i++) {
+			intArr[i] = sc.nextInt();
 		}
 		
-		System.out.println(sum);
+		Arrays.sort(intArr);
+		
+		for(int i : intArr) {
+			System.out.println(i);
+		}
 		
 		sc.close();
 	}
