@@ -12,6 +12,9 @@ public class Main {
 		int remain = 0;
 		Set<Integer> resultSet = new HashSet<>();
 		
+		
+		
+		
 		for(int i = 0; i < 10; i++) {
 			int N = sc.nextInt();
 			remain = N % 42;
