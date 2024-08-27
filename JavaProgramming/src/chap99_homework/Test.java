@@ -111,7 +111,47 @@ public class Test {
 //		} catch (IOException e) {
 //			e.printStackTrace();
 //		}
+	
 		
+		
+		
+		
+//		import java.util.ArrayList;
+//		import java.util.Arrays;
+//		import java.util.Collections;
+//		import java.util.HashSet;
+//		import java.util.List;
+//		import java.util.Scanner;
+//		import java.util.Set;
+//
+//		public class Main {
+//
+//			public static void main(String[] args) {     
+//
+//				Scanner sc = new Scanner(System.in);
+//				
+//				List<String> stList = new ArrayList<>();
+//				
+//				int N = 0;
+//				String st = sc.nextLine();
+//				boolean existSt = false;
+//				
+//				if(N >= 100) {
+//					
+//				}
+//				
+//				for(int i = 0; i < N; i++) {
+//					stList.add(st); 
+//				}
+//				
+//				for(String st1 : stList) {
+//					System.out.println(st1);
+//				}
+//				
+//				sc.close();
+//			}
+//		}
+
 		
 	}
 }
