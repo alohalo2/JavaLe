@@ -10,21 +10,31 @@ public class Main {
 
 		Scanner sc = new Scanner(System.in);
 		
+		int testCaseCnt = sc.nextInt();
 		int N = sc.nextInt();
-		int k = sc.nextInt();
-		sc.nextLine();
+		double min = 0;
+		double max = 0;
+		String ten = "1";
+		int sum = 0;
 		
-		Integer[] scoreArr = new Integer[N]; 
-		
-		for(int i = 0; i < N; i++) {
-			scoreArr[i] = sc.nextInt();
+		for(int i = 0; i < testCaseCnt; i++) {
+			if(N % 2 == 0) {
+				for(int j = 0;  j < N/2; j++) {
+					if(j == 0) {
+						ten = "1";
+					} else {
+						ten += "0";
+					}
+					int intTen = Integer.parseInt(ten);
+					max = intTen;
+					sum += max;
+				}
+			}
 		}
 		
-		Arrays.sort(scoreArr);
-		Arrays.sort(scoreArr, (Collections.reverseOrder()));
+		System.out.println(sum);
 		
-		System.out.println(scoreArr[k-1]);
-		
+//		1 + 10 + 100 + 1000 + 10000 + 100000
 		sc.close();
 	}
 }
