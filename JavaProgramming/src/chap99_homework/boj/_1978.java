@@ -13,6 +13,7 @@ public class _1978 {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 		
+		
 		try {
 			String firstLine = br.readLine();
 			int N = Integer.parseInt(firstLine);
