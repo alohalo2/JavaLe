@@ -26,6 +26,8 @@ public class _4344 {
             	
             	int N = Integer.parseInt(st.nextToken()); // 학생 수
 
+
+          
             	arr = new int[N];
     			
     			double sum = 0;	// 성적 누적 합 변수 
@@ -37,7 +39,7 @@ public class _4344 {
     				sum += val;	// 성적 누적 합 
     			}
     			
-    			double mean = (sum / N) ;
+    			double mean = (sum / N) ; // 학생들의 평균
     			double count = 0; // 평균 넘는 학생 수 변수 
     			
     			// 평균 넘는 학생 비율 찾기 
@@ -47,7 +49,7 @@ public class _4344 {
     				}
     			}
     			
-    			System.out.printf("%.3f%%\n",(count/N)*100);
+    			bw.write(String.format("%.3f%%\n", (count / N) * 100));
  
             }
 
