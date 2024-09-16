@@ -14,31 +14,38 @@ public class Main {
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
         
         try {
-            
-        	int M = Integer.parseInt(br.readLine());
-        	int[] intArr = {1, 0, 0};
-        	
-        	for(int i = 0; i < M; i++) {
-        		StringTokenizer st = new StringTokenizer(br.readLine());
-        		int firstCupNum = Integer.parseInt(st.nextToken()) - 1;
-        		int secondCupNum = Integer.parseInt(st.nextToken()) - 1;
-        		int temp = 0;
-        		
-        		temp = intArr[firstCupNum];
-        		intArr[firstCupNum] = intArr[secondCupNum];
-        		intArr[secondCupNum] = temp;
-        		
-        	}
-        	for(int i = 0; i < intArr.length; i++) {
-        		if(intArr[i] == 1) {
-        			bw.write((i+1) + "\n");
-        		}
-        	}
 
+    		StringTokenizer st = new StringTokenizer(br.readLine());
+    		int mulPrime = Integer.parseInt(st.nextToken());
+    		int basedNum = Integer.parseInt(st.nextToken());
+    		int bigPrime = 2;
+    		int smallPrime = 2;
+    		
+    		if(mulPrime / basedNum > basedNum) {
+    			bw.write("GOOD" + "\n");
+    		} else {
+				for(int i = 2; i <= basedNum; i++) {
+					if(mulPrime % i == 0) {
+						bigPrime = mulPrime / i;
+						smallPrime = i;
+						bw.write("BAD" + " " + smallPrime + "\n");
+					} else {
+						return;
+					}
+				}
+			}
             bw.flush();
             bw.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
+	
+	public static boolean isPrime(int num) {
+		if(num < 2) return false;
+		for(int i = 2; i <= num/2; i++) {
+			if(num % i == 0) return false; 
+		}
+		return true;
+	}
 }
