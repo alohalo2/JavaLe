@@ -7,7 +7,7 @@ import java.io.OutputStreamWriter;
 import java.math.BigInteger;
 import java.util.StringTokenizer;
 
-public class Main {
+public class _1837_암호제작_BigInteger {
 
 	public static void main(String[] args) {
 		
