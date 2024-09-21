@@ -6,12 +6,14 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.util.StringTokenizer;
 
-public class Main {
+public class _5575 {
 
 	public static void main(String[] args) {
 		
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+  
+        // 문제 풀 때 메소드로 만드는 방법을 되도록 고려해서 접근하는게 중요!!
         
         try {
 
