@@ -13,7 +13,7 @@ public class _5575 {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
   
-        // 문제 풀 때 메소드로 만드는 방법을 되도록 고려해서 접근하는게 중요!!
+        // 문제를 풀 때 최대한 메소드를 만드는 방향성을 고려해서 접근하는게 중요!!
         
         try {
 
