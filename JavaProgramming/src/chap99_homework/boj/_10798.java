@@ -7,7 +7,7 @@ import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Main {
+public class _10798 {
 
 public static void main(String[] args) {
 		
