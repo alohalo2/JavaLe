@@ -11,7 +11,8 @@ public static void main(String[] args) {
 		
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-             
+               
+        
         try {
         	
 //        	접근 방법 : 피보나치 수를 이해하고 문제에 적용
@@ -49,9 +50,9 @@ public static void main(String[] args) {
                 fibArr[j] = fibArr[j - 3] + fibArr[j - 2];
             }
 
-//            for(int i = 0; i < maxN; i++) {
-//            	bw.write("fibArr[" + i + "]:" + fibArr[i] + " ");
-//            }
+            for(int i = 0; i < maxN; i++) {
+            	bw.write("fibArr[" + i + "]:" + fibArr[i] + " ");
+            }
             
             // 각 테스트 케이스 결과 출력
             for (int i = 0; i < T; i++) {
