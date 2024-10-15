@@ -19,6 +19,8 @@ public static void main(String[] args) {
         	
 //        	접근 방법 : 맨해튼 거리(위치 좌표 상의 차이)에 대한 이해	 
      
+        	
+        	
         	StringTokenizer st = new StringTokenizer(br.readLine());
         	
         	int month = Integer.parseInt(st.nextToken());
