@@ -15,9 +15,6 @@ public static void main(String[] args) {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 
-        
-        
-        
         try {
         	
 //        	접근 방법 : 맨해튼 거리(위치 좌표 상의 차이)에 대한 이해	 
