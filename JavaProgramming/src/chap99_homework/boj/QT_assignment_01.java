@@ -4,10 +4,12 @@ import java.util.Scanner;
 
 public class QT_assignment_01 {
 
+	/* get_1_or_0() 함수 */
 	public static int get_1_or_0() {
 		return (int) (Math.random() * 2);
 	}
 	
+	/* get_random 함수 */
 	public static int get_random(int n) {
 		if (n < 0) {
 	        throw new IllegalArgumentException("Negative N is not allowed");
@@ -30,40 +32,35 @@ public class QT_assignment_01 {
 		return result;
 	}
 	
+	/* Test Code */
 	public static void test() {
-		
 		//Test Case 1: N = 0
 		System.out.println("Testing N = 0");
 		assert get_random(0) == 0 : "Failed: N = 0";
-		
 		//Test Case 2: N = 1
 		System.out.println("Testing N = 1");
 		for(int i = 0; i < 100; i ++) {
 			int result = get_random(1);
 			assert result == 0 || result == 1 : "Failed: N = 1";
 		}
-		
 		//Test Case 3: N = 10
 		System.out.println("Testing N = 10");
 		for(int i = 0; i < 100; i++) {
 			int result = get_random(10);
 			assert result >= 0 && result <= 10 : "Failed: N = 10";
 		}
-		
 		//Test Case 4: N = 1000
 		System.out.println("Testing N = 1000");
 		for(int i = 0; i < 1000; i++) {
 			int result = get_random(1000);
 			assert result >= 0 && result <= 1000 : "Failed: N = 1000";
 		}
-		
 		//Test Case 5: N = Integer.MAX_VALUE
 		System.out.println("Testing N = Integer.MAX_VALUE");
 		for(int i = 0; i < 10000; i++) {
 			int result = get_random(Integer.MAX_VALUE);
 			assert result >= 0 && result <= Integer.MAX_VALUE : "Failed: N = Integer.MAX_VALUE";
 		}
-		
 		//Test Case 6: N = 음수일 때
 		System.out.println("Testing negative N");
 		try {
@@ -72,7 +69,6 @@ public class QT_assignment_01 {
 		} catch (Exception e) {
 			assert true : "Passed Negative N";
 		}
-		
 	}
 	
 	public static void main(String[] args) {
@@ -89,20 +85,6 @@ public class QT_assignment_01 {
 		
 		/*----------------Test-----------------*/
 		
-//		int test1 = test(0);
-//		int test2 = test(1);
-//		int test3 = test(10);
-//		int test4 = test(100);
-//		int test5 = test(1000);
-//		int test6 = test(Integer.MAX_VALUE);
-//		
-//		System.out.println("test1: " + test1);
-//		System.out.println("test2: " + test2);
-//		System.out.println("test3: " + test3);
-//		System.out.println("test4: " + test4);
-//		System.out.println("test5: " + test5);
-//		System.out.println("test6: " + test6);
-		
 		try {
 		    test(); // 모든 테스트 실행
 		    System.out.println("All tests passed!");
@@ -112,7 +94,5 @@ public class QT_assignment_01 {
 		}
 		
 	}
-	
-	
 
 }
