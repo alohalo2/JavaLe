@@ -1,11 +1,9 @@
 package chap99_homework.boj;
 
-
 import java.util.Arrays;
 import java.util.Scanner;
 
-
-public class Main {
+public class _2475 {
 
 	public static void main(String[] args) {
 		
@@ -22,5 +20,7 @@ public class Main {
 							.sum();
 		
 		System.out.println(result % 10);
-    }
+		
+	}
+
 }
