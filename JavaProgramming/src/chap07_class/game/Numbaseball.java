@@ -53,12 +53,14 @@ public class Numbaseball {
 				System.out.print("0~9 중 하나를 입력하세요.");
 				user[i] = sc.nextInt();
 				
+				// out of bounce 오류
 				if(user[i] < 0 || user[i] > 9) {
 					System.out.println("잘못 입력하셨습니다.");
 					i--;
 					continue;
 				}
 				
+				// 중복체크
 				if(i > 0) {
 					for(int j = 0; j < i; j++) {
 						if(user[i] == user[j]) {

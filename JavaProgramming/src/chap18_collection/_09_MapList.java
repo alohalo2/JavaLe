@@ -10,7 +10,6 @@ import chap14_objectarray.car.Car;
 public class _09_MapList {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 		List<Car> carList = new ArrayList<>();
 		
 		carList.add(new Car("현대", "제네시스", 5000, "검정"));

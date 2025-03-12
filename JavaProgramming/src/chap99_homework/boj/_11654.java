@@ -5,7 +5,7 @@ import java.io.BufferedWriter;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 
-public class Main {
+public class _11654 {
 
 	public static void main(String[] args) {
 
@@ -13,16 +13,13 @@ public class Main {
 			BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 			BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 			
-			String userStringInput = br.readLine();
-			int userIntInput = Integer.parseInt(br.readLine());
+			int result = br.read();
 			
-			Character[] charArry = new Character[userStringInput.length()];
-			
-			for(int i = 0; i < userStringInput.length(); i++) {
-				charArry[i] = userStringInput.charAt(i);
-			}
-			
-			bw.write(charArry[userIntInput - 1]);
+			// bw.write(result)는 안되는 이유: br.read()로 읽으면 문자열을 
+			// 아스키 코드로 읽는데 int인 result를 출력하면 아스키 코드를 다시 문자열로 변환해서 출력
+			// 그러나 "\n"을 더해주면 문자열로 바뀌어 "아스키코드\n" 이렇게 출력되어 아스키 코드를 출력 가능
+			bw.write(result + "\n");
+//			bw.write(String.valueOf(result));
 			
 			br.close();
 			bw.flush();
@@ -30,7 +27,9 @@ public class Main {
 			
 		} catch (Exception e) {
 			e.printStackTrace();
+			
 		}
 		
 	}
+
 }

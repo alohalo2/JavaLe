@@ -16,9 +16,7 @@ public class ParameterCalculator {
 	
 	public double div(double a, int b) {
 		return a / b;
-	
 	}
-	
 	
 	public String concat(String a, String b) {
 		return a + "  " + b;

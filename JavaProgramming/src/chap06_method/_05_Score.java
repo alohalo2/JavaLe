@@ -19,10 +19,9 @@ public class _05_Score {
 		
 		int[] scores = new int[studentCnt];
 		
+		System.out.println("점수를 입력하세요.");
 		for(int i = 0; i < studentCnt; i++) {
-			System.out.println("점수를 입력하세요.");
 			scores[i] = sc.nextInt();
-			
 		}
  
 		System.out.println("점수의 총합은: " + score.getTotalScore(scores));

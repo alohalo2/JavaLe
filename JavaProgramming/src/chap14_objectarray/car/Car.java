@@ -10,6 +10,11 @@ public class Car {
 		
 	}
 	
+	@Override
+	public String toString() {
+		return "Car [company=" + company + ", model=" + model + ", price=" + price + ", color=" + color + "]";
+	}
+
 	public Car(String company, String model, int price, String color) {
 		this.company = company;
 		this.model = model;
