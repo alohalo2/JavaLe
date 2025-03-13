@@ -7,7 +7,6 @@ import java.util.Map;
 public class _07_WildCard {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 		// 1.
 		List<Integer> intList = new ArrayList<>();
 		

@@ -1,9 +1,7 @@
 package chap99_homework.boj;
 
 import java.io.BufferedReader;
-import java.io.BufferedWriter;
 import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
 
 public class Main {
 
@@ -11,26 +9,49 @@ public class Main {
 
 		try {
 			BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-			BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 			
-			String userStringInput = br.readLine();
-			int userIntInput = Integer.parseInt(br.readLine());
+			int testCount = Integer.parseInt(br.readLine());
 			
-			Character[] charArry = new Character[userStringInput.length()];
-			
-			for(int i = 0; i < userStringInput.length(); i++) {
-				charArry[i] = userStringInput.charAt(i);
+			while(true) {
+				if(testCount == 0) break;
+
+				String[] userInput = br.readLine().split(" ");
+				int numberOfFloor = Integer.parseInt(userInput[0]);
+				int roomQuantity = Integer.parseInt(userInput[1]);
+				int numberOfCustomer = Integer.parseInt(userInput[2]);
+				
+				System.out.println(calcRoomNumber(numberOfFloor, roomQuantity, numberOfCustomer));
+				
+				testCount--;
 			}
-			
-			bw.write(charArry[userIntInput - 1]);
-			
-			br.close();
-			bw.flush();
-			bw.close();
 			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		
 	}
+	
+	public static int calcRoomNumber(int numberOfFloor, int roomQuantity, int numberOfCustomer) {
+		
+		
+		int customerFloor; 
+		int customerRoomNumber = (numberOfCustomer - 1) / numberOfFloor + 1;
+				
+		if(numberOfCustomer % numberOfFloor == 0) {
+			customerFloor = numberOfFloor;
+		} else {
+			customerFloor = numberOfCustomer % numberOfFloor;
+		}
+		
+		int result;
+		
+		if (customerRoomNumber < 10) {
+			result = Integer.parseInt(customerFloor + "0" + customerRoomNumber);
+		} else {
+			result = Integer.parseInt(customerFloor + "" + customerRoomNumber);
+		}
+		
+		return result;
+	}
+
 }
