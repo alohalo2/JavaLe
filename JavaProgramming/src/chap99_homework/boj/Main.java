@@ -9,49 +9,30 @@ public class Main {
 
 		try {
 			BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-			
-			int testCount = Integer.parseInt(br.readLine());
-			
-			while(true) {
-				if(testCount == 0) break;
 
-				String[] userInput = br.readLine().split(" ");
-				int numberOfFloor = Integer.parseInt(userInput[0]);
-				int roomQuantity = Integer.parseInt(userInput[1]);
-				int numberOfCustomer = Integer.parseInt(userInput[2]);
-				
-				System.out.println(calcRoomNumber(numberOfFloor, roomQuantity, numberOfCustomer));
-				
-				testCount--;
-			}
+			int testCase = Integer.parseInt(br.readLine());
 			
+			while(testCase > 0) {
+				
+				String[] userInput = br.readLine().split(" ");
+				
+				int repetition = Integer.parseInt(userInput[0]);
+				
+				String[] strArry = userInput[1].split("");
+				
+				for(int i = 0; i < strArry.length; i++) {
+						strArry[i] = strArry[i].repeat(repetition);
+				}
+				
+				String result = String.join("", strArry);
+				
+				System.out.println(result);
+				
+				testCase--;
+			}
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
 	}
-	
-	public static int calcRoomNumber(int numberOfFloor, int roomQuantity, int numberOfCustomer) {
-		
-		
-		int customerFloor; 
-		int customerRoomNumber = (numberOfCustomer - 1) / numberOfFloor + 1;
-				
-		if(numberOfCustomer % numberOfFloor == 0) {
-			customerFloor = numberOfFloor;
-		} else {
-			customerFloor = numberOfCustomer % numberOfFloor;
-		}
-		
-		int result;
-		
-		if (customerRoomNumber < 10) {
-			result = Integer.parseInt(customerFloor + "0" + customerRoomNumber);
-		} else {
-			result = Integer.parseInt(customerFloor + "" + customerRoomNumber);
-		}
-		
-		return result;
-	}
-
 }
