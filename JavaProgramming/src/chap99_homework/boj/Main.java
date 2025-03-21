@@ -2,7 +2,6 @@ package chap99_homework.boj;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
-import java.util.Arrays;
 
 public class Main {
 
@@ -10,28 +9,28 @@ public class Main {
 		
 		try (BufferedReader br = new BufferedReader(new InputStreamReader(System.in))){
 			
-			String userInput = br.readLine().toLowerCase();
+			int N = Integer.parseInt(br.readLine());
+			int M = 0;
 			
-			int[] resultArry = new int[26];
-
-			Arrays.fill(resultArry, -1);
-			
-			for(int i = 0; i < userInput.length(); i++) {
-				char ch = userInput.charAt(i);
-				int index = ch - 'a';
+			for(int i = N - 9*String.valueOf(N).length(); i < N; i++) {
+				int sum = i;
+				int temp = i;
 				
-				if(resultArry[index] == -1) {
-					resultArry[index] = i;
+				while(temp > 0) {
+					sum += temp % 10;
+					temp /= 10;
+				}
+				
+				if(sum == N) {
+					M = i;
+					break;
 				}
 			}
 			
-			for (int i : resultArry) {
-				System.out.print(i + " ");
-			}
+			System.out.println(M);
 			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
 	}
 }
