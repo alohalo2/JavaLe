@@ -13,6 +13,8 @@ public class _2798_블랙잭 {
 			int N = Integer.parseInt(userInput[0]);
 			int M = Integer.parseInt(userInput[1]);
 			
+			
+			
 			int[] cardArry = new int[N];
 			String[] cards = br.readLine().split(" ");
 			
