@@ -5,45 +5,44 @@ import java.io.InputStreamReader;
 
 public class Main {
 
-	static int max = 0;
-	
 	public static void main(String[] args) {
-		
+
 		try (BufferedReader br = new BufferedReader(new InputStreamReader(System.in))) {
 
-			String[] userInput = br.readLine().split(" ");
-			int N = Integer.parseInt(userInput[0]);
-			int M = Integer.parseInt(userInput[1]);
+			int L = Integer.parseInt(br.readLine());
 
-			int[] cardArry = new int[N];
-			String[] cards = br.readLine().split(" ");
+			String input = br.readLine();
 
-			for (int i = 0; i < cardArry.length; i++) {
-				cardArry[i] = Integer.parseInt(cards[i]);
-			}
+			System.out.println(hashFunction(L, input));
 
-			combine(cardArry, new int[3], 0, 0, M);
-			System.out.println(max);
-			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 
 	}
-	
-	public static void combine(int[] cardArry, int[] selected, int start, int depth, int M) {
-		
-		if(depth == 3) {
-			int result = selected[0] + selected[1] + selected[2];
-			if (result <= M && result > max) {
-				max = result;
-			}
-			return;
+
+	public static int hashFunction(int L, String input) {
+
+		long sum = 0;
+		int r = 31;
+		int mod = 1234567891;
+
+		for (int i = 0; i < L; i++) {
+			int charValue = input.charAt(i) - 'a' + 1;
+			long term = (charValue * powMod(r, i, mod)) % mod;
+			sum = (sum + term) % mod;
 		}
-		
-		for(int i = start; i < cardArry.length;	i++) {
-			selected[depth] = cardArry[i];
-			combine(cardArry, selected, i + 1, depth + 1, M);
+
+		return (int) sum;
+	}
+
+	public static long powMod(int r, int range, int mod) {
+		long result = 1;
+
+		for (int i = 0; i < range; i++) {
+			result = (result * r) % mod;
 		}
+
+		return result;
 	}
 }
