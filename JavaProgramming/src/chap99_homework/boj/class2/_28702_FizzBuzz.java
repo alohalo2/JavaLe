@@ -1,9 +1,9 @@
-package chap99_homework.boj;
+package chap99_homework.boj.class2;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
-public class Main {
+public class _28702_FizzBuzz {
 
 	public static void main(String[] args) {
 
