@@ -7,30 +7,30 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.StringTokenizer;
 
-public class _10814_나이순정렬 {
+public class _11651_좌표정렬하기2 {
 
 	public static void main(String[] args) {
 
-		// List<String[]>의 값들에 정렬 기준을 잘 정리해 문제 해결
 		try (BufferedReader br = new BufferedReader(new InputStreamReader(System.in))) {
 
-			List<String[]> userInputList = new ArrayList<>();
-			StringBuilder sb = new StringBuilder();
-
 			int N = Integer.parseInt(br.readLine());
+			List<int[]> intArryList = new ArrayList<>();
+			StringBuilder sb = new StringBuilder();
 
 			for (int i = 0; i < N; i++) {
 				StringTokenizer st = new StringTokenizer(br.readLine(), " ");
-				String[] userInput = new String[2];
-				userInput[0] = st.nextToken();
-				userInput[1] = st.nextToken();
-				userInputList.add(userInput);
+				int[] intArry = new int[2];
+				intArry[0] = Integer.parseInt(st.nextToken());
+				intArry[1] = Integer.parseInt(st.nextToken());
+				intArryList.add(intArry);
 			}
-			
-			userInputList.sort(Comparator.comparingInt(strArry -> Integer.parseInt(strArry[0])));
+
+			intArryList.sort(
+					Comparator.comparingInt((int[] num) -> num[1])
+							.thenComparingInt(num -> num[0]));
 
 			for (int i = 0; i < N; i++) {
-				sb.append(userInputList.get(i)[0]).append(" ").append(userInputList.get(i)[1]).append("\n");
+				sb.append(intArryList.get(i)[0]).append(" ").append(intArryList.get(i)[1]).append("\n");
 			}
 
 			System.out.println(sb);
@@ -38,5 +38,7 @@ public class _10814_나이순정렬 {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+
 	}
+
 }
