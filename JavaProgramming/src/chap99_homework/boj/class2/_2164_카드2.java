@@ -1,11 +1,11 @@
-package chap99_homework.boj;
+package chap99_homework.boj.class2;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.LinkedList;
 import java.util.Queue;
 
-public class Main {
+public class _2164_카드2 {
 
 	public static void main(String[] args) {
 
@@ -28,5 +28,7 @@ public class Main {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+
 	}
+
 }
