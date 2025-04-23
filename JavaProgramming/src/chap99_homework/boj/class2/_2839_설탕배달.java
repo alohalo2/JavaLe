@@ -1,11 +1,9 @@
-package chap99_homework.boj;
+package chap99_homework.boj.class2;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
-import java.util.LinkedList;
-import java.util.Queue;
 
-public class Main {
+public class _2839_설탕배달 {
 
 	public static void main(String[] args) {
 
@@ -14,6 +12,8 @@ public class Main {
 			int N = Integer.parseInt(br.readLine());
 
 			int result = -1;
+			
+			// for문을 어떻게 쓸지 생각해보는게 중요!
 			for (int i = N / 5; i >= 0; i--) { // 5kg 최대 개수부터 줄여가며
 				int remain = N - (i * 5);
 				if (remain % 3 == 0) {
